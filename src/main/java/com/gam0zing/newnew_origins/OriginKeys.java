@@ -71,7 +71,7 @@ public class OriginKeys {
         //advancement description
         public static final DataSources.TranslateData CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_2 = new DataSources.TranslateData(
                 "condition.description.up_to_forest_elf_2",
-                ""
+                ""  //进度描述：方便玩家快速查看升级方法，需要写清楚
         );
         public static final DataSources.TranslateData CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_3 = new DataSources.TranslateData(
                 "condition.description.up_to_forest_elf_3",

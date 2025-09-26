@@ -1,17 +1,20 @@
 package com.gam0zing.newnew_origins.data;
 
 import com.gam0zing.newnew_origins.NewNewOrigins;
+import com.gam0zing.newnew_origins.OriginKeys;
 import com.gam0zing.newnew_origins.utils.ModTools;
 import com.google.gson.JsonElement;
-import com.mojang.serialization.Codec;
+import com.google.gson.JsonObject;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import org.jetbrains.annotations.NotNull;
 
+import javax.xml.crypto.Data;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 /// 这个类是用于生成数据的工具类
@@ -30,6 +33,7 @@ public class OriginDataProvider implements DataProvider {
         List<CompletableFuture<?>> futures = new ArrayList<>();
         List<DataSources.OriginData> origins = ModTools.getFieldsAsList(DataInstances.Origins.class, DataSources.OriginData.class);
         List<DataSources.PowerData> powers = ModTools.getFieldsAsList(DataInstances.Powers.class, DataSources.PowerData.class);
+        List<DataSources.TranslateData> translates = ModTools.getFieldsAsList(OriginKeys.Translatable.class, DataSources.TranslateData.class);
 
         Path path;
         JsonElement jsonElement;
@@ -48,6 +52,21 @@ public class OriginDataProvider implements DataProvider {
             if (jsonElement != null) {
                 futures.add(DataProvider.saveStable(cache, jsonElement, path));
             }
+        }
+
+        path = output.getOutputFolder().resolve("assets/" + NewNewOrigins.MODID + "/lang/en_us.json");
+        JsonObject jsonObject = new JsonObject();
+        for (DataSources.TranslateData translate: translates) {
+            jsonElement = ModTools.getJsonElement(DataSources.Codecs.CODEC_TRANSLATE, translate);
+            if (jsonElement != null && jsonElement.isJsonObject()) {
+                JsonObject transJson = jsonElement.getAsJsonObject();
+                for (Map.Entry<String, JsonElement> entry : transJson.entrySet()) {
+                    jsonObject.add(entry.getKey(), entry.getValue());
+                }
+            }
+        }
+        if (jsonObject.size() > 0) {
+            futures.add(DataProvider.saveStable(cache, jsonObject, path));
         }
 
         return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));

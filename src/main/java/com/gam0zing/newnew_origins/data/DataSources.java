@@ -2,10 +2,12 @@ package com.gam0zing.newnew_origins.data;
 
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
+import java.util.Map;
 
 /// 这个类存储了所有json的数据格式
 /// 用于Provider中进行对象创建
@@ -66,9 +68,19 @@ public class DataSources {
                 CODEC_UPGRADE.listOf().fieldOf("upgrades").forGetter(OriginData::upgrades)
         ).apply(instance, OriginData::new));
 
-        public static final Codec<TranslateData> CODEC_TRANSLATE = RecordCodecBuilder.create(instance -> instance.group(
-                Codec.STRING.fieldOf("key").forGetter(TranslateData::key),
-                Codec.STRING.fieldOf("value").forGetter(TranslateData::value)
-        ).apply(instance, TranslateData::new));
+        public static final Codec<TranslateData> CODEC_TRANSLATE = Codec.unboundedMap(Codec.STRING, Codec.STRING)
+                .comapFlatMap(
+                        map -> {
+                            if (map.size() == 1) {
+                                Map.Entry<String, String> entry = map.entrySet().iterator().next();
+                                TranslateData data = new TranslateData(entry.getKey(), entry.getValue());
+                                return DataResult.success(data);
+                            } else {
+                                return DataResult.error(() -> "Expected exactly one key-value pair");
+                            }
+                        },
+                        translateData -> Map.of(translateData.key(), translateData.value())
+                );
+
     }
 }
