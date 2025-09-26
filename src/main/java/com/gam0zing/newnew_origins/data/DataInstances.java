@@ -5,6 +5,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
 import java.util.List;
+import java.util.Map;
 
 /// 这个类记录了所有数据对象
 /// 被数据生成类直接调用
@@ -51,5 +52,17 @@ public class DataInstances {
                 new DataSources.UpgradeData(OriginKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_2, OriginKeys.ID.ORIGIN_ID_FOREST_ELF_2, OriginKeys.Translatable.CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_2.key());
         public static final DataSources.UpgradeData UP_TO_FOREST_ELF_3 =
                 new DataSources.UpgradeData(OriginKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_3, OriginKeys.ID.ORIGIN_ID_FOREST_ELF_3, OriginKeys.Translatable.CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_3.key());
+    }
+
+    public static class Achievements {
+        public static final DataSources.AdvancementData FIRST_FOREST_ELF = new DataSources.AdvancementData(
+                "first_forest_elf",                                // ID
+                "advancement.newneworigins.first_forest_elf.title", // 标题翻译键
+                "advancement.newneworigins.first_forest_elf.desc",  // 描述翻译键
+                new ItemStack(Items.OAK_SAPLING),                   // 图标
+                null,                                               // 父级成就
+                Map.of("become_elf", "origins:become_forest_elf"),  // 条件：触发器
+                ""                                                  // 奖励（留空）
+        );
     }
 }

@@ -42,6 +42,16 @@ public class DataSources {
             String value
     ) {}
 
+    public record AdvancementData(
+            String id,                // 成就 ID（文件名用）
+            String title,             // 标题翻译键
+            String description,       // 描述翻译键
+            ItemStack icon,           // 成就图标
+            String parent,            // 父级成就 ID（可以为 null）
+            Map<String, String> criteria, // 触发条件（key=条件名, value=触发类型）
+            String reward             // 奖励描述（可选，比如指令、物品）
+    ) {}
+
     /// 每个记录类的CODEC，用于读写JSON
     public static class Codecs {
         public static final Codec<UpgradeData> CODEC_UPGRADE = RecordCodecBuilder.create(instance -> instance.group(
@@ -67,6 +77,16 @@ public class DataSources {
                 Codec.STRING.listOf().fieldOf("powers").forGetter(OriginData::powers),
                 CODEC_UPGRADE.listOf().fieldOf("upgrades").forGetter(OriginData::upgrades)
         ).apply(instance, OriginData::new));
+
+        public static final Codec<AdvancementData> CODEC_ADVANCEMENT = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("id").forGetter(AdvancementData::id),
+                Codec.STRING.fieldOf("title").forGetter(AdvancementData::title),
+                Codec.STRING.fieldOf("description").forGetter(AdvancementData::description),
+                ItemStack.CODEC.fieldOf("icon").forGetter(AdvancementData::icon),
+                Codec.STRING.optionalFieldOf("parent", "").forGetter(AdvancementData::parent),
+                Codec.unboundedMap(Codec.STRING, Codec.STRING).fieldOf("criteria").forGetter(AdvancementData::criteria),
+                Codec.STRING.optionalFieldOf("reward", "").forGetter(AdvancementData::reward)
+        ).apply(instance, AdvancementData::new));
 
         public static final Codec<TranslateData> CODEC_TRANSLATE = Codec.unboundedMap(Codec.STRING, Codec.STRING)
                 .comapFlatMap(

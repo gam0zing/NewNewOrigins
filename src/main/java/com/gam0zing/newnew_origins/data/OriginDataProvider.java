@@ -45,6 +45,15 @@ public class OriginDataProvider implements DataProvider {
                 futures.add(DataProvider.saveStable(cache, jsonElement, path));
             }
         }
+        List<DataSources.AdvancementData> advancements = ModTools.getFieldsAsList(DataInstances.Achievements.class, DataSources.AdvancementData.class);
+
+        for (DataSources.AdvancementData adv : advancements) {
+            path = output.getOutputFolder().resolve("data/" + NewNewOrigins.MODID + "/advancements/" + adv.id() + ".json");
+            jsonElement = ModTools.getJsonElement(DataSources.Codecs.CODEC_ADVANCEMENT, adv);
+            if (jsonElement != null) {
+                futures.add(DataProvider.saveStable(cache, jsonElement, path));
+            }
+        }
 
         for (DataSources.PowerData power : powers) {
             path = output.getOutputFolder().resolve("data/" + NewNewOrigins.MODID + "/powers/" + power.id() + ".json");
