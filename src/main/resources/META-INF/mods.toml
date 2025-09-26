@@ -30,3 +30,10 @@ mandatory=true
 versionRange="${origins_version_range}"
 ordering="NONE"
 side="BOTH"
+
+[[dependencies.${mod_id}]]
+modId="pehkui"
+mandatory=true
+versionRange="${pehkui_version_range}"
+ordering="NONE"
+side="BOTH"

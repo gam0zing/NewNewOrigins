@@ -1,0 +1,74 @@
+package com.gam0zing.newnew_origins.data;
+
+
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.world.item.ItemStack;
+
+import java.util.List;
+
+/// 这个类存储了所有json的数据格式
+/// 用于Provider中进行对象创建
+public class DataSources {
+
+    public record OriginData(
+            String id,
+            String name,
+            String description,
+            ItemStack iconItem,
+            int impact,
+            int order,
+            boolean unchoosable,
+            List<String> powers,
+            List<UpgradeData> upgrades
+    ) {}
+
+    public record PowerData(
+            String id,
+            String name,
+            String description
+    ) {}
+
+    public record UpgradeData(
+            String condition,               //这个是进度ID，当这个进度达成时，就会升级
+            String targetOrigin,            //要升级到的另一个起源的ID
+            String announcement             //当升级事件发生时，将在聊天框发送消息 #####这里有点问题，升级消息会播报两次，可能Origins没做双端检测#####
+    ) {}
+
+    public record TranslateData(
+            String key,
+            String value
+    ) {}
+
+    /// 每个记录类的CODEC，用于读写JSON
+    public static class Codecs {
+        public static final Codec<UpgradeData> CODEC_UPGRADE = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("condition").forGetter(UpgradeData::condition),
+                Codec.STRING.fieldOf("targetOrigin").forGetter(UpgradeData::targetOrigin),
+                Codec.STRING.fieldOf("announcement").forGetter(UpgradeData::announcement)
+        ).apply(instance, UpgradeData::new));
+
+        public static final Codec<PowerData> CODEC_POWER = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("id").forGetter(PowerData::id),
+                Codec.STRING.fieldOf("name").forGetter(PowerData::name),
+                Codec.STRING.fieldOf("description").forGetter(PowerData::description)
+        ).apply(instance, PowerData::new));
+
+        public static final Codec<OriginData> CODEC_ORIGIN = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("id").forGetter(OriginData::id),
+                Codec.STRING.fieldOf("name").forGetter(OriginData::name),
+                Codec.STRING.fieldOf("description").forGetter(OriginData::description),
+                ItemStack.CODEC.fieldOf("iconItem").forGetter(OriginData::iconItem),
+                Codec.INT.fieldOf("impact").forGetter(OriginData::impact),
+                Codec.INT.fieldOf("order").forGetter(OriginData::order),
+                Codec.BOOL.fieldOf("unchoosable").forGetter(OriginData::unchoosable),
+                Codec.STRING.listOf().fieldOf("powers").forGetter(OriginData::powers),
+                CODEC_UPGRADE.listOf().fieldOf("upgrades").forGetter(OriginData::upgrades)
+        ).apply(instance, OriginData::new));
+
+        public static final Codec<TranslateData> CODEC_TRANSLATE = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("key").forGetter(TranslateData::key),
+                Codec.STRING.fieldOf("value").forGetter(TranslateData::value)
+        ).apply(instance, TranslateData::new));
+    }
+}
