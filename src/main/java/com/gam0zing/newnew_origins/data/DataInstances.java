@@ -1,45 +1,80 @@
 package com.gam0zing.newnew_origins.data;
 
-import com.gam0zing.newnew_origins.OriginKeys;
+import com.gam0zing.newnew_origins.NewNewOrigins;
+import com.gam0zing.newnew_origins.ModKeys;
+import com.gam0zing.newnew_origins.utils.ModTools;
+import io.github.apace100.origins.origin.Impact;
+import io.github.apace100.origins.origin.OriginLayers;
+import io.github.apace100.origins.registry.ModItems;
+import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
+import io.github.edwinmindcraft.origins.api.data.PartialLayer;
+import io.github.edwinmindcraft.origins.api.data.PartialOrigin;
+import io.github.edwinmindcraft.origins.api.origin.Origin;
+import io.github.edwinmindcraft.origins.api.origin.OriginLayer;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.FrameType;
+import net.minecraft.advancements.critereon.ImpossibleTrigger;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 /// 这个类记录了所有数据对象
 /// 被数据生成类直接调用
 public class DataInstances {
 
+    public static final PartialLayer ORIGIN_LAYERS =
+            PartialLayer.builder()
+                    .order(10)
+                    .replace(false)
+                    .origins(
+                            Set.of(
+
+                            )
+                    )
+                    .build();
+
     public static class Origins {
-        //森精灵 1级
-        public static final DataSources.OriginData FOREST_ELF = new DataSources.OriginData(
-                OriginKeys.ID.ORIGIN_ID_FOREST_ELF, OriginKeys.Translatable.ORIGIN_NAME_FOREST_ELF.key(), OriginKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF.key(),
-                new ItemStack(Items.OAK_SAPLING), 2, 0, false,
-                List.of(
-                ),
-                List.of(
-                        Upgrades.UP_TO_FOREST_ELF_2
-                )
+
+        public static final DataSources.ID_Holder<PartialOrigin> FOREST_ELF = new DataSources.ID_Holder<>(
+                ModKeys.ID.ORIGIN_ID_FOREST_ELF,
+                PartialOrigin.builder()
+                        .unchoosable(false)
+                        .order(10)
+                        .impact(Impact.MEDIUM)
+                        .icon(new ItemStack(Items.OAK_SAPLING))
+                        .name(ModKeys.Translatable.ORIGIN_NAME_FOREST_ELF.key())
+                        .description(ModKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF.key())
+                        .build()
         );
-        //森精灵 2级
-        public static final DataSources.OriginData FOREST_ELF_2 = new DataSources.OriginData(
-                OriginKeys.ID.ORIGIN_ID_FOREST_ELF_2, OriginKeys.Translatable.ORIGIN_NAME_FOREST_ELF.key(), OriginKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF_2.key(),
-                new ItemStack(Items.OAK_SAPLING), 2, 0, true,
-                List.of(
-                ),
-                List.of(
-                        Upgrades.UP_TO_FOREST_ELF_3
-                )
+
+        public static final DataSources.ID_Holder<PartialOrigin> FOREST_ELF_2 = new DataSources.ID_Holder<>(
+                ModKeys.ID.ORIGIN_ID_FOREST_ELF_2,
+                PartialOrigin.builder()
+                        .unchoosable(false)
+                        .order(10)
+                        .impact(Impact.MEDIUM)
+                        .icon(new ItemStack(Items.OAK_SAPLING))
+                        .name(ModKeys.Translatable.ORIGIN_NAME_FOREST_ELF_2.key())
+                        .description(ModKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF_2.key())
+                        .build()
         );
-        //森精灵 3级
-        public static final DataSources.OriginData FOREST_ELF_3 = new DataSources.OriginData(
-                OriginKeys.ID.ORIGIN_ID_FOREST_ELF_3, OriginKeys.Translatable.ORIGIN_NAME_FOREST_ELF.key(), OriginKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF_3.key(),
-                new ItemStack(Items.OAK_SAPLING), 2, 0, true,
-                List.of(
-                ),
-                List.of(
-                )
+
+        public static final DataSources.ID_Holder<PartialOrigin> FOREST_ELF_3 = new DataSources.ID_Holder<>(
+                ModKeys.ID.ORIGIN_ID_FOREST_ELF_3,
+                PartialOrigin.builder()
+                        .unchoosable(false)
+                        .order(10)
+                        .impact(Impact.MEDIUM)
+                        .icon(new ItemStack(Items.OAK_SAPLING))
+                        .name(ModKeys.Translatable.ORIGIN_NAME_FOREST_ELF_3.key())
+                        .description(ModKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF_3.key())
+                        .build()
         );
     }
 
@@ -48,21 +83,72 @@ public class DataInstances {
     }
 
     public static class Upgrades {
-        public static final DataSources.UpgradeData UP_TO_FOREST_ELF_2 =
-                new DataSources.UpgradeData(OriginKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_2, OriginKeys.ID.ORIGIN_ID_FOREST_ELF_2, OriginKeys.Translatable.CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_2.key());
-        public static final DataSources.UpgradeData UP_TO_FOREST_ELF_3 =
-                new DataSources.UpgradeData(OriginKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_3, OriginKeys.ID.ORIGIN_ID_FOREST_ELF_3, OriginKeys.Translatable.CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_3.key());
+
     }
 
-    public static class Achievements {
-        public static final DataSources.AdvancementData FIRST_FOREST_ELF = new DataSources.AdvancementData(
-                "first_forest_elf",                                // ID
-                "advancement.newneworigins.first_forest_elf.title", // 标题翻译键
-                "advancement.newneworigins.first_forest_elf.desc",  // 描述翻译键
-                new ItemStack(Items.OAK_SAPLING),                   // 图标
-                null,                                               // 父级成就
-                Map.of("become_elf", "origins:become_forest_elf"),  // 条件：触发器
-                ""                                                  // 奖励（留空）
-        );
+    public static class Advancements {
+        //根节点
+        public static final Advancement CONDITION_ROOT =
+                Advancement.Builder.advancement()
+                        .display(
+                                new ItemStack(ModItems.ORB_OF_ORIGIN.get()),
+                                Component.translatable(ModKeys.Translatable.CONDITION_NAME_ROOT.key()),
+                                Component.translatable(ModKeys.Translatable.CONDITION_DESCRIPTION_ROOT.key()),
+                                null,
+                                FrameType.TASK,
+                                false,
+                                true,
+                                false
+                        )
+                        .addCriterion(ModKeys.ID.CONDITION_ID_ROOT, new Criterion(new ImpossibleTrigger.TriggerInstance()))
+                        .build(ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, ModKeys.ID.CONDITION_ID_ROOT));
+        //森精灵 选择起源
+        public static final Advancement CONDITION_BECOME_FOREST_ELF =
+                Advancement.Builder.advancement()
+                        .parent(CONDITION_ROOT)
+                        .display(
+                                new ItemStack(Items.OAK_SAPLING),
+                                Component.translatable(ModKeys.Translatable.CONDITION_NAME_BECOME_FOREST_ELF.key()),
+                                Component.translatable(ModKeys.Translatable.CONDITION_DESCRIPTION_BECOME_FOREST_ELF.key()),
+                                null,
+                                FrameType.TASK,
+                                false,
+                                true,
+                                false
+                        )
+                        .addCriterion(ModKeys.ID.CONDITION_ID_BECOME_FOREST_ELF, new Criterion(new ImpossibleTrigger.TriggerInstance()))
+                        .build(ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, ModKeys.ID.CONDITION_ID_BECOME_FOREST_ELF));
+        //森精灵 升到2级
+        public static final Advancement CONDITION_UP_TO_FOREST_ELF_2 =
+                Advancement.Builder.advancement()
+                        .parent(CONDITION_BECOME_FOREST_ELF)
+                        .display(
+                                new ItemStack(Items.OAK_SAPLING),
+                                Component.translatable(ModKeys.Translatable.CONDITION_NAME_UP_TO_FOREST_ELF_2.key()),
+                                Component.translatable(ModKeys.Translatable.CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_2.key()),
+                                null,
+                                FrameType.GOAL,
+                                true,
+                                true,
+                                false
+                        )
+                        .addCriterion(ModKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_2, new Criterion(new ImpossibleTrigger.TriggerInstance()))
+                        .build(ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, ModKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_2));
+        //森精灵 升到3级
+        public static final Advancement CONDITION_UP_TO_FOREST_ELF_3 =
+                Advancement.Builder.advancement()
+                        .parent(CONDITION_UP_TO_FOREST_ELF_2)
+                        .display(
+                                new ItemStack(Items.OAK_SAPLING),
+                                Component.translatable(ModKeys.Translatable.CONDITION_NAME_UP_TO_FOREST_ELF_3.key()),
+                                Component.translatable(ModKeys.Translatable.CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_3.key()),
+                                null,
+                                FrameType.CHALLENGE,
+                                true,
+                                true,
+                                false
+                        )
+                        .addCriterion(ModKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_3, new Criterion(new ImpossibleTrigger.TriggerInstance()))
+                        .build(ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, ModKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_3));
     }
 }
