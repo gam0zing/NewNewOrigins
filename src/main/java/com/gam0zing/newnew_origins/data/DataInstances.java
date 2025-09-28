@@ -1,16 +1,8 @@
 package com.gam0zing.newnew_origins.data;
 
-import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.gam0zing.newnew_origins.ModKeys;
-import com.gam0zing.newnew_origins.utils.ModTools;
-import io.github.apace100.origins.origin.Impact;
-import io.github.apace100.origins.origin.OriginLayers;
+import com.gam0zing.newnew_origins.NewNewOrigins;
 import io.github.apace100.origins.registry.ModItems;
-import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
-import io.github.edwinmindcraft.origins.api.data.PartialLayer;
-import io.github.edwinmindcraft.origins.api.data.PartialOrigin;
-import io.github.edwinmindcraft.origins.api.origin.Origin;
-import io.github.edwinmindcraft.origins.api.origin.OriginLayer;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.FrameType;
@@ -20,62 +12,63 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 /// 这个类记录了所有数据对象
 /// 被数据生成类直接调用
 public class DataInstances {
 
-    public static final PartialLayer ORIGIN_LAYERS =
-            PartialLayer.builder()
-                    .order(10)
-                    .replace(false)
-                    .origins(
-                            Set.of(
-
-                            )
-                    )
-                    .build();
+    public static final DataSources.LayerData LAYER_DEFAULT =
+            DataSources.LayerData.builder().order(10).replace(true).build();
 
     public static class Origins {
 
-        public static final DataSources.ID_Holder<PartialOrigin> FOREST_ELF = new DataSources.ID_Holder<>(
-                ModKeys.ID.ORIGIN_ID_FOREST_ELF,
-                PartialOrigin.builder()
-                        .unchoosable(false)
-                        .order(10)
-                        .impact(Impact.MEDIUM)
-                        .icon(new ItemStack(Items.OAK_SAPLING))
+        public static final DataSources.OriginData FOREST_ELF =
+                DataSources.OriginData.builder()
+                        .id(ModKeys.ID.ORIGIN_ID_FOREST_ELF)
                         .name(ModKeys.Translatable.ORIGIN_NAME_FOREST_ELF.key())
                         .description(ModKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF.key())
-                        .build()
-        );
-
-        public static final DataSources.ID_Holder<PartialOrigin> FOREST_ELF_2 = new DataSources.ID_Holder<>(
-                ModKeys.ID.ORIGIN_ID_FOREST_ELF_2,
-                PartialOrigin.builder()
+                        .icon(DataSources.ItemData.builder().fromItemStack(new ItemStack(Items.OAK_SAPLING)).build())
+                        .impact(2)
+                        .order(2)
                         .unchoosable(false)
-                        .order(10)
-                        .impact(Impact.MEDIUM)
-                        .icon(new ItemStack(Items.OAK_SAPLING))
+                        .powers(
+
+                        )
+                        .upgrades(
+
+                        )
+                        .build();
+        public static final DataSources.OriginData FOREST_ELF_2 =
+                DataSources.OriginData.builder()
+                        .id(ModKeys.ID.ORIGIN_ID_FOREST_ELF_2)
                         .name(ModKeys.Translatable.ORIGIN_NAME_FOREST_ELF_2.key())
                         .description(ModKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF_2.key())
-                        .build()
-        );
+                        .icon(DataSources.ItemData.builder().fromItemStack(new ItemStack(Items.OAK_SAPLING)).build())
+                        .impact(2)
+                        .order(2)
+                        .unchoosable(true)
+                        .powers(
 
-        public static final DataSources.ID_Holder<PartialOrigin> FOREST_ELF_3 = new DataSources.ID_Holder<>(
-                ModKeys.ID.ORIGIN_ID_FOREST_ELF_3,
-                PartialOrigin.builder()
-                        .unchoosable(false)
-                        .order(10)
-                        .impact(Impact.MEDIUM)
-                        .icon(new ItemStack(Items.OAK_SAPLING))
+                        )
+                        .upgrades(
+
+                        )
+                        .build();
+        public static final DataSources.OriginData FOREST_ELF_3 =
+                DataSources.OriginData.builder()
+                        .id(ModKeys.ID.ORIGIN_ID_FOREST_ELF_3)
                         .name(ModKeys.Translatable.ORIGIN_NAME_FOREST_ELF_3.key())
                         .description(ModKeys.Translatable.ORIGIN_DESCRIPTION_FOREST_ELF_3.key())
-                        .build()
-        );
+                        .icon(DataSources.ItemData.builder().fromItemStack(new ItemStack(Items.OAK_SAPLING)).build())
+                        .impact(2)
+                        .order(2)
+                        .unchoosable(true)
+                        .powers(
+
+                        )
+                        .upgrades(
+
+                        )
+                        .build();
     }
 
     public static class Powers {
@@ -151,4 +144,5 @@ public class DataInstances {
                         .addCriterion(ModKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_3, new Criterion(new ImpossibleTrigger.TriggerInstance()))
                         .build(ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, ModKeys.ID.CONDITION_ID_UP_TO_FOREST_ELF_3));
     }
+
 }
