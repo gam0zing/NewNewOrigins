@@ -3,6 +3,8 @@ package com.gam0zing.newnew_origins.data;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import io.github.edwinmindcraft.apoli.api.power.PowerData;
+import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -161,10 +163,9 @@ public class DataSources {
         }
     }
 
-    public record PowerData(
+    public record PowerWithID(
             String id,
-            String name,
-            String description
+            ConfiguredPower<?, ?> power
     ) {}
 
     public record UpgradeData(
@@ -290,12 +291,6 @@ public class DataSources {
                 Codec.STRING.fieldOf("origin").forGetter(UpgradeData::origin),
                 Codec.STRING.fieldOf("announcement").forGetter(UpgradeData::announcement)
         ).apply(instance, UpgradeData::new));
-
-        public static final Codec<PowerData> CODEC_POWER = RecordCodecBuilder.create(instance -> instance.group(
-                Codec.STRING.fieldOf("id").forGetter(PowerData::id),
-                Codec.STRING.fieldOf("name").forGetter(PowerData::name),
-                Codec.STRING.fieldOf("description").forGetter(PowerData::description)
-        ).apply(instance, PowerData::new));
 
         public static final Codec<OriginData> CODEC_ORIGIN = RecordCodecBuilder.create(instance -> instance.group(
                 Codec.STRING.fieldOf("id").forGetter(OriginData::id),

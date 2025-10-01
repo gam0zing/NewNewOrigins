@@ -16,14 +16,14 @@ public class ModKeys {
         public static final String ORIGIN_ID_FOREST_ELF_3 = "forest_elf_3";
 
         //power id
-
+        public static final String POWER_ID_GOLDEN_EXPLOSION = "golden_explosion";
 
         //advancement id
-        public static final String CONDITION_ID_ROOT = "root";
+        public static final String ADVANCEMENT_ID_ROOT = "root";
 
-        public static final String CONDITION_ID_BECOME_FOREST_ELF = "become_forest_elf";
-        public static final String CONDITION_ID_UP_TO_FOREST_ELF_2 = "up_to_forest_elf_2";
-        public static final String CONDITION_ID_UP_TO_FOREST_ELF_3 = "up_to_forest_elf_3";
+        public static final String ADVANCEMENT_ID_BECOME_FOREST_ELF = "become_forest_elf";
+        public static final String ADVANCEMENT_ID_UP_TO_FOREST_ELF_2 = "up_to_forest_elf_2";
+        public static final String ADVANCEMENT_ID_UP_TO_FOREST_ELF_3 = "up_to_forest_elf_3";
     }
 
     public static class Translatable {
@@ -72,39 +72,39 @@ public class ModKeys {
         );
 
         //advancement name
-        public static final DataSources.TranslateData CONDITION_NAME_ROOT = new DataSources.TranslateData(
+        public static final DataSources.TranslateData ADVANCEMENT_NAME_ROOT = new DataSources.TranslateData(
                 "condition.name.root",
                 "Welcome to NewNewWorld"
         );
 
-        public static final DataSources.TranslateData CONDITION_NAME_BECOME_FOREST_ELF = new DataSources.TranslateData(
+        public static final DataSources.TranslateData ADVANCEMENT_NAME_BECOME_FOREST_ELF = new DataSources.TranslateData(
                 "condition.name.become_forest_elf",
                 "Become A Forest Elf"
         );
-        public static final DataSources.TranslateData CONDITION_NAME_UP_TO_FOREST_ELF_2 = new DataSources.TranslateData(
+        public static final DataSources.TranslateData ADVANCEMENT_NAME_UP_TO_FOREST_ELF_2 = new DataSources.TranslateData(
                 "condition.name.up_to_forest_elf_2",
                 "Life Blessing"
         );
-        public static final DataSources.TranslateData CONDITION_NAME_UP_TO_FOREST_ELF_3 = new DataSources.TranslateData(
+        public static final DataSources.TranslateData ADVANCEMENT_NAME_UP_TO_FOREST_ELF_3 = new DataSources.TranslateData(
                 "condition.name.up_to_forest_elf_3",
                 "Withering World"
         );
 
         //advancement description
-        public static final DataSources.TranslateData CONDITION_DESCRIPTION_ROOT = new DataSources.TranslateData(
+        public static final DataSources.TranslateData ADVANCEMENT_DESCRIPTION_ROOT = new DataSources.TranslateData(
                 "condition.description.root",
                 "View more info about your origin in advancements."
         );
 
-        public static final DataSources.TranslateData CONDITION_DESCRIPTION_BECOME_FOREST_ELF = new DataSources.TranslateData(
+        public static final DataSources.TranslateData ADVANCEMENT_DESCRIPTION_BECOME_FOREST_ELF = new DataSources.TranslateData(
                 "condition.description.become_forest_elf",
                 ""
         );
-        public static final DataSources.TranslateData CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_2 = new DataSources.TranslateData(
+        public static final DataSources.TranslateData ADVANCEMENT_DESCRIPTION_UP_TO_FOREST_ELF_2 = new DataSources.TranslateData(
                 "condition.description.up_to_forest_elf_2",
                 ""  //进度描述：方便玩家快速查看升级方法，需要写清楚
         );
-        public static final DataSources.TranslateData CONDITION_DESCRIPTION_UP_TO_FOREST_ELF_3 = new DataSources.TranslateData(
+        public static final DataSources.TranslateData ADVANCEMENT_DESCRIPTION_UP_TO_FOREST_ELF_3 = new DataSources.TranslateData(
                 "condition.description.up_to_forest_elf_3",
                 ""
         );

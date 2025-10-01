@@ -1,5 +1,6 @@
 package com.gam0zing.newnew_origins;
 
+import com.gam0zing.newnew_origins.rigistry.NewNewBlockActions;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -11,6 +12,6 @@ public class NewNewOrigins {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public NewNewOrigins(FMLJavaModLoadingContext context) {
-
+        NewNewBlockActions.register(context.getModEventBus());
     }
 }

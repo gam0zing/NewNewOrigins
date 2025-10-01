@@ -5,17 +5,16 @@ import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.gam0zing.newnew_origins.utils.ModTools;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import io.github.apace100.apoli.power.Power;
+import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import org.jetbrains.annotations.NotNull;
 
-import javax.xml.crypto.Data;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 /// 这个类是用于生成数据的工具类
@@ -38,7 +37,7 @@ public class OriginDataProvider implements DataProvider {
         DataSources.LayerData.Builder layer = DataInstances.LAYER_DEFAULT.toBuilder();
 
         List<DataSources.OriginData> origins = ModTools.getFieldsAsList(DataInstances.Origins.class, DataSources.OriginData.class);
-        List<DataSources.PowerData> powers = ModTools.getFieldsAsList(DataInstances.Powers.class, DataSources.PowerData.class);
+        List<DataSources.PowerWithID> powers = ModTools.getFieldsAsList(DataInstances.Powers.class, DataSources.PowerWithID.class);
         List<Advancement> advancements = ModTools.getFieldsAsList(DataInstances.Advancements.class, Advancement.class);
         List<DataSources.TranslateData> translates = ModTools.getFieldsAsList(ModKeys.Translatable.class, DataSources.TranslateData.class);
 
@@ -59,9 +58,9 @@ public class OriginDataProvider implements DataProvider {
             }
         }
 
-        for (DataSources.PowerData power : powers) {
+        for (DataSources.PowerWithID power : powers) {
             path = output.getOutputFolder().resolve("data/" + NewNewOrigins.MODID + "/powers/" + power.id() + ".json");
-            jsonElement = ModTools.getJsonElement(DataSources.Codecs.CODEC_POWER, power);
+            jsonElement = ModTools.getJsonElement(ConfiguredPower.CODEC, power.power());
             if (jsonElement != null) {
                 futures.add(DataProvider.saveStable(cache, jsonElement, path));
             }

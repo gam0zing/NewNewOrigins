@@ -1,19 +1,23 @@
 package com.gam0zing.newnew_origins.utils;
 
+import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
+import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ModTools {
 
     /// 反射获取静态类的静态字段，类型转换后返回列表
-    public static <T> List<T> getFieldsAsList(Class<?> object, Class<T> targetType) {
+    public static <T> List<T> getFieldsAsList(Class<?> object, Class<? extends T> targetType) {
 
         List<T> ret = new ArrayList<>();
 
@@ -52,5 +56,10 @@ public class ModTools {
         else {
             return null;
         }
+    }
+
+    /// 获取全称ID
+    public static String fullID(String id) {
+        return NewNewOrigins.MODID + ":" + id;
     }
 }
