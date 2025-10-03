@@ -1,4 +1,4 @@
-package com.gam0zing.newnew_origins.action.configuration;
+package com.gam0zing.newnew_origins.power.action.configuration;
 
 import com.gam0zing.newnew_origins.NewNewDataTypes;
 import com.mojang.serialization.Codec;

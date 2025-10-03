@@ -5,27 +5,20 @@ import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.gam0zing.newnew_origins.rigistry.NewNewBlockActions;
 import com.gam0zing.newnew_origins.utils.ModTools;
 import io.github.apace100.apoli.action.configuration.ExplodeConfiguration;
-import io.github.apace100.apoli.data.DamageSourceDescription;
-import io.github.apace100.apoli.power.factory.condition.ItemConditions;
-import io.github.apace100.origins.power.OriginsEntityConditions;
+import io.github.apace100.apoli.util.HudRender;
 import io.github.apace100.origins.registry.ModItems;
-import io.github.edwinmindcraft.apoli.api.configuration.NoConfiguration;
+import io.github.edwinmindcraft.apoli.api.power.IActivePower;
 import io.github.edwinmindcraft.apoli.api.power.PowerData;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
-import io.github.edwinmindcraft.apoli.api.power.factory.ItemCondition;
 import io.github.edwinmindcraft.apoli.common.action.configuration.BlockConfiguration;
-import io.github.edwinmindcraft.apoli.common.action.configuration.DamageConfiguration;
-import io.github.edwinmindcraft.apoli.common.action.configuration.DamageItemConfiguration;
 import io.github.edwinmindcraft.apoli.common.action.configuration.ExperienceConfiguration;
+import io.github.edwinmindcraft.apoli.common.action.meta.NothingConfiguration;
 import io.github.edwinmindcraft.apoli.common.power.configuration.ActionOnBlockBreakConfiguration;
-import io.github.edwinmindcraft.apoli.common.power.configuration.ActionOnItemUseConfiguration;
+import io.github.edwinmindcraft.apoli.common.power.configuration.FireProjectileConfiguration;
 import io.github.edwinmindcraft.apoli.common.registry.ApoliPowers;
 import io.github.edwinmindcraft.apoli.common.registry.action.ApoliEntityActions;
-import io.github.edwinmindcraft.apoli.common.registry.action.ApoliItemActions;
 import io.github.edwinmindcraft.apoli.common.registry.condition.ApoliBlockConditions;
 import io.github.edwinmindcraft.apoli.common.registry.condition.ApoliEntityConditions;
-import io.github.edwinmindcraft.apoli.common.registry.condition.ApoliItemConditions;
-import io.github.edwinmindcraft.origins.common.condition.configuration.OriginConfiguration;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.FrameType;
@@ -33,9 +26,8 @@ import net.minecraft.advancements.critereon.ImpossibleTrigger;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageSources;
-import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Explosion;
@@ -60,7 +52,8 @@ public class DataInstances {
                         .order(2)
                         .unchoosable(false)
                         .powers(
-                                ModTools.fullID(Powers.GOLDEN_EXPLOSION.id())
+                                ModTools.fullID(Powers.GOLDEN_EXPLOSION.id()),
+                                ModTools.fullID(Powers.TRAMPLE.id())
                         )
                         .upgrades(
 
@@ -129,37 +122,67 @@ public class DataInstances {
                                 false
                         ),
                         //暂时没用过这个，不知道有什么用
-                        PowerData.DEFAULT
+                        PowerData.builder()
+                                .withName(ModKeys.Translatable.POWER_NAME_GOLDEN_EXPLOSION.key())
+                                .withDescription(ModKeys.Translatable.POWER_DESCRIPTION_GOLDEN_EXPLOSION.key())
+                                .build()
                 )
         );
 
-        /// 未完成的
-        /// 想知道什么作用就看变量和类的名字
-        /// 大概作用是在使用任何物品时对自己和物品持续造成伤害
-        /// ！！！！！重要：Apoli模组（起源前置之一，提供了能力的实现框架）抽象工厂模式的运作方式，需要你去问AI，你可以问他需要哪些代码来搞清楚功能，先发一点源码去问，然后你再按提示把剩下的代码发给他，弄懂了这个就比较好写，建议问阿里千问，别问deepseek或者gpt
-/*        public static DataSources.PowerWithID GOLDEN_ENTITY_EXPLOSION = new DataSources.PowerWithID(
-                ModKeys.ID.POWER_ID_GOLDEN_EXPLOSION,
+        /// 投掷雪球的方法
+        public static DataSources.PowerWithID TRAMPLE = new DataSources.PowerWithID(
+                ModKeys.ID.POWER_ID_THROWING_SNOWBALL,
                 new ConfiguredPower<>(
-                        ApoliPowers.ACTION_ON_ITEM_USE,
-                        new ActionOnItemUseConfiguration(
-                                new Holder.Direct<>(ApoliItemConditions.constant(true)),
-                                new Holder.Direct<>(ApoliEntityActions.DAMAGE.get().configure(new DamageConfiguration(
-                                        DamageTypes.MAGIC,
-                                        new DamageSourceDescription(
-                                                //查源码
-                                        ),
-                                        1
-                                ))),
-                                new Holder.Direct<>(ApoliItemActions.DAMAGE.get().configure(new DamageItemConfiguration(
-                                        1,
-                                        true
-                                ))),
-                                ActionOnItemUseConfiguration.TriggerType.DURING,
-                                1
+                        //调用发射弹射物工厂模板
+                        ApoliPowers.FIRE_PROJECTILE,
+                        //对应结构类
+                        new FireProjectileConfiguration(
+                                //冷却时间，单位：tick
+                                20,
+                                //渲染冷却条
+                                new HudRender(
+                                        //是否渲染
+                                        true,
+                                        //冷却条在一张美术资源中的位置，这个模组提供的资源从上往下排列，并从0开始编号，所以12代表从上往下第13个样式
+                                        12,
+                                        //美术资源在文件中的位置
+                                        ResourceLocation.fromNamespaceAndPath("origins","textures/gui/community/huang/resource_bar_01.png"),
+                                        //显示条件，设定为默认true，即常态显示
+                                        new Holder.Direct<>(ApoliEntityConditions.constant(true)),
+                                        //冷却条倒转，如果这是一个消耗能量的技能，那么冷却条可以倒转为能量条，仅改变显示模式，不改变技能逻辑，所以冷却型技能设置为true时，依然是冷却型技能，而非充能型技能
+                                        false
+                                ),
+                                //弹射物实体
+                                EntityType.SNOWBALL,
+                                //总数量
+                                3,
+                                //发射速度
+                                3f,
+                                //弹体发散
+                                3f,
+                                //调用声音
+                                SoundEvents.SNOWBALL_THROW,
+                                //弹射物带有的tag
+                                null,
+                                //调用哪个技能按键
+                                IActivePower.Key.PRIMARY,
+                                //每个弹射物发射的时间间隔，单位：tick
+                                3,
+                                //发射准备时间，单位：tick
+                                0,
+                                //发射的弹射物执行的动作
+                                new Holder.Direct<>(ApoliEntityActions.NOTHING.get().configure(new NothingConfiguration<>())),
+                                //发射者执行的动作
+                                new Holder.Direct<>(ApoliEntityActions.NOTHING.get().configure(new NothingConfiguration<>()))
                         ),
-                        PowerData.DEFAULT
+                        PowerData.builder()
+                                //技能名称，翻译键
+                                .withName(ModKeys.Translatable.POWER_NAME_THROWING_SNOWBALL.key())
+                                //技能描述，翻译键
+                                .withDescription(ModKeys.Translatable.POWER_DESCRIPTION_THROWING_SNOWBALL.key())
+                                .build()
                 )
-        );*/
+        );
     }
 
     public static class Advancements {

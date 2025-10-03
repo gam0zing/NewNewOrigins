@@ -1,7 +1,7 @@
 package com.gam0zing.newnew_origins.rigistry;
 
 import com.gam0zing.newnew_origins.NewNewOrigins;
-import com.gam0zing.newnew_origins.action.block.NewExplodeAction;
+import com.gam0zing.newnew_origins.power.action.block.NewExplodeAction;
 import io.github.edwinmindcraft.apoli.api.power.factory.BlockAction;
 import io.github.edwinmindcraft.apoli.api.registry.ApoliRegistries;
 import net.minecraftforge.eventbus.api.IEventBus;

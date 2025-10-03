@@ -1,6 +1,6 @@
-package com.gam0zing.newnew_origins.action.entity;
+package com.gam0zing.newnew_origins.power.action.entity;
 
-import com.gam0zing.newnew_origins.action.configuration.NewExplodeConfiguration;
+import com.gam0zing.newnew_origins.power.action.configuration.NewExplodeConfiguration;
 import com.mojang.serialization.Codec;
 import io.github.edwinmindcraft.apoli.api.power.factory.EntityAction;
 import net.minecraft.world.entity.Entity;

@@ -12,5 +12,9 @@
   "origin.description.forest_elf_3": "一个充满生机的种族，天生擅长魔法，灵巧但纤弱。白天能在阳光下恢复能量，夜晚变得更加迅捷。只喜欢睡在高大的树上。致命弱点：受到成倍的火焰伤害。\n  生命祝福升级：\n获得一个更加强大的治愈魔法[回春术]。\n  万物凋零升级：\n魔法[再生术]被极大增强，并获得毁灭敌人的能力。",
   "origin.name.forest_elf": "森精灵",
   "origin.upgrade_to.forest_elf_2": "你的起源获得了进化",
-  "origin.upgrade_to.forest_elf_3": "你的起源获得了进化"
+  "origin.upgrade_to.forest_elf_3": "你的起源获得了进化",
+  "power.description.golden_explosion": "这是一个示例技能",
+  "power.description.throwing_snowball": "这是一个示例技能",
+  "power.name.golden_explosion": "黄金爆破",
+  "power.name.throwing_snowball": "投掷雪球"
 }

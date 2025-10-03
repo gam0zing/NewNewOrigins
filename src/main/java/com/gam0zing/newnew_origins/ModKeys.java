@@ -17,6 +17,7 @@ public class ModKeys {
 
         //power id
         public static final String POWER_ID_GOLDEN_EXPLOSION = "golden_explosion";
+        public static final String POWER_ID_THROWING_SNOWBALL = "throwing_snowball";
 
         //advancement id
         public static final String ADVANCEMENT_ID_ROOT = "root";
@@ -56,10 +57,24 @@ public class ModKeys {
         );
 
         //power name
-
+        public static final DataSources.TranslateData POWER_NAME_GOLDEN_EXPLOSION = new DataSources.TranslateData(
+                "power.name.golden_explosion",
+                "Golden Explosion"
+        );
+        public static final DataSources.TranslateData POWER_NAME_THROWING_SNOWBALL = new DataSources.TranslateData(
+                "power.name.throwing_snowball",
+                "Throwing Snowball"
+        );
 
         //power description
-
+        public static final DataSources.TranslateData POWER_DESCRIPTION_GOLDEN_EXPLOSION = new DataSources.TranslateData(
+                "power.description.golden_explosion",
+                "a example power."
+        );
+        public static final DataSources.TranslateData POWER_DESCRIPTION_THROWING_SNOWBALL = new DataSources.TranslateData(
+                "power.description.throwing_snowball",
+                "a example power."
+        );
 
         //upgrade info
         public static final DataSources.TranslateData UPGRADE_TO_FOREST_ELF_2 = new DataSources.TranslateData(
