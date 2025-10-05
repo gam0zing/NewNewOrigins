@@ -1,6 +1,6 @@
-package com.gam0zing.newnew_origins.power.action.entity;
+package com.gam0zing.newnew_origins.origins.power.action;
 
-import com.gam0zing.newnew_origins.power.action.configuration.NewExplodeConfiguration;
+import com.gam0zing.newnew_origins.origins.power.action.configuration.BlockExplodeActionConfiguration;
 import com.mojang.serialization.Codec;
 import io.github.edwinmindcraft.apoli.api.power.factory.EntityAction;
 import net.minecraft.world.entity.Entity;
@@ -11,14 +11,14 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 
 /// 在方块爆炸的基础上，增加伤害来源
-public class EntityExplodeAction extends EntityAction<NewExplodeConfiguration> {
+public class EntityExplodeAction extends EntityAction<BlockExplodeActionConfiguration> {
 
-    public EntityExplodeAction(Codec<NewExplodeConfiguration> codec) {
-        super(codec);
+    public EntityExplodeAction() {
+        super(BlockExplodeActionConfiguration.CODEC);
     }
 
     @Override
-    public void execute(NewExplodeConfiguration explodeConfiguration, @NotNull Entity entity) {
+    public void execute(BlockExplodeActionConfiguration explodeConfiguration, @NotNull Entity entity) {
         makeEffect(entity, explodeConfiguration.calculator(), entity.getX(), entity.getY(), entity.getZ(), explodeConfiguration.power(), explodeConfiguration.createFire(), explodeConfiguration.explosionInteraction());
     }
 

@@ -17,7 +17,7 @@ public class DataGenerators {
         PackOutput output = generator.getPackOutput();
 
         if (event.includeServer()) {
-            generator.addProvider(true, new OriginDataProvider(output));
+            generator.addProvider(true, new NewNewDataProvider(output));
         }
     }
 }

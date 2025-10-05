@@ -1,4 +1,4 @@
-package com.gam0zing.newnew_origins.power.action.block;
+package com.gam0zing.newnew_origins.origins.power.action;
 
 import io.github.apace100.apoli.action.configuration.ExplodeConfiguration;
 import io.github.edwinmindcraft.apoli.api.power.factory.BlockAction;
@@ -12,9 +12,9 @@ import java.util.Objects;
 
 /// Apoli的爆炸能力没有使用完整的原版explode方法，导致没有声音、粒子的表现
 /// 这个类是为了修正这个情况并代替原本的爆炸行为
-public class NewExplodeAction extends BlockAction<ExplodeConfiguration> {
+public class BlockExplodeAction extends BlockAction<ExplodeConfiguration> {
 
-    public NewExplodeAction() {
+    public BlockExplodeAction() {
         super(ExplodeConfiguration.CODEC);
     }
 

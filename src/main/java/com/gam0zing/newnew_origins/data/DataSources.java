@@ -7,8 +7,10 @@ import io.github.edwinmindcraft.apoli.api.power.PowerData;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potion;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
@@ -317,6 +319,5 @@ public class DataSources {
                         },
                         translateData -> Map.of(translateData.key(), translateData.value())
                 );
-
     }
 }

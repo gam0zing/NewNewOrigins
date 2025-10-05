@@ -2,8 +2,13 @@ package com.gam0zing.newnew_origins.data;
 
 import com.gam0zing.newnew_origins.ModKeys;
 import com.gam0zing.newnew_origins.NewNewOrigins;
+import com.gam0zing.newnew_origins.origins.power.action.ForestElf_SpellRegeneration_Action;
+import com.gam0zing.newnew_origins.origins.power.action.configuration.ForestElf_SpellRegeneration_ActionConfiguration;
 import com.gam0zing.newnew_origins.rigistry.NewNewBlockActions;
+import com.gam0zing.newnew_origins.rigistry.NewNewEntityActions;
 import com.gam0zing.newnew_origins.utils.ModTools;
+import com.gam0zing.newnew_origins.utils.TagProvider;
+import com.mojang.datafixers.types.templates.Tag;
 import io.github.apace100.apoli.action.configuration.ExplodeConfiguration;
 import io.github.apace100.apoli.util.HudRender;
 import io.github.apace100.origins.registry.ModItems;
@@ -12,9 +17,9 @@ import io.github.edwinmindcraft.apoli.api.power.PowerData;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 import io.github.edwinmindcraft.apoli.common.action.configuration.BlockConfiguration;
 import io.github.edwinmindcraft.apoli.common.action.configuration.ExperienceConfiguration;
+import io.github.edwinmindcraft.apoli.common.action.configuration.SpawnEntityConfiguration;
 import io.github.edwinmindcraft.apoli.common.action.meta.NothingConfiguration;
-import io.github.edwinmindcraft.apoli.common.power.configuration.ActionOnBlockBreakConfiguration;
-import io.github.edwinmindcraft.apoli.common.power.configuration.FireProjectileConfiguration;
+import io.github.edwinmindcraft.apoli.common.power.configuration.*;
 import io.github.edwinmindcraft.apoli.common.registry.ApoliPowers;
 import io.github.edwinmindcraft.apoli.common.registry.action.ApoliEntityActions;
 import io.github.edwinmindcraft.apoli.common.registry.condition.ApoliBlockConditions;
@@ -24,6 +29,7 @@ import net.minecraft.advancements.Criterion;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.ImpossibleTrigger;
 import net.minecraft.core.Holder;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -52,8 +58,7 @@ public class DataInstances {
                         .order(2)
                         .unchoosable(false)
                         .powers(
-                                ModTools.fullID(Powers.GOLDEN_EXPLOSION.id()),
-                                ModTools.fullID(Powers.TRAMPLE.id())
+                                ModTools.fullID(Powers.SPELL_REGENERATION.id())
                         )
                         .upgrades(
 
@@ -130,7 +135,7 @@ public class DataInstances {
         );
 
         /// 投掷雪球的方法
-        public static DataSources.PowerWithID TRAMPLE = new DataSources.PowerWithID(
+        public static DataSources.PowerWithID THROWING_SNOWBALL = new DataSources.PowerWithID(
                 ModKeys.ID.POWER_ID_THROWING_SNOWBALL,
                 new ConfiguredPower<>(
                         //调用发射弹射物工厂模板
@@ -180,6 +185,43 @@ public class DataInstances {
                                 .withName(ModKeys.Translatable.POWER_NAME_THROWING_SNOWBALL.key())
                                 //技能描述，翻译键
                                 .withDescription(ModKeys.Translatable.POWER_DESCRIPTION_THROWING_SNOWBALL.key())
+                                .build()
+                )
+        );
+
+        public static final DataSources.PowerWithID SPELL_REGENERATION = new DataSources.PowerWithID(
+                ModKeys.ID.POWER_ID_SPELL_REGENERATION,
+                new ConfiguredPower<>(
+                        ApoliPowers.ACTIVE_SELF,
+                        new ActiveSelfConfiguration(
+                                100,
+                                new HudRender(
+                                        true,
+                                        9,
+                                        ResourceLocation.fromNamespaceAndPath("origins","textures/gui/community/spiderkolo/resource_bar_02.png"),
+                                        new Holder.Direct<>(ApoliEntityConditions.constant(true)),
+                                        false
+                                ),
+                                NewNewEntityActions.FOREST_ELF_SPELL_REGENERATION.get().configure(
+                                        new ForestElf_SpellRegeneration_ActionConfiguration(
+                                                0,
+                                                10,
+                                                4,
+                                                true,
+                                                4,
+                                                160,
+                                                true,
+                                                30,
+                                                160,
+                                                false,
+                                                3
+                                        )
+                                ),
+                                IActivePower.Key.PRIMARY
+                        ),
+                        PowerData.builder()
+                                .withName(ModKeys.Translatable.POWER_NAME_SPELL_REGENERATION.key())
+                                .withDescription(ModKeys.Translatable.POWER_DESCRIPTION_SPELL_REGENERATION.key())
                                 .build()
                 )
         );

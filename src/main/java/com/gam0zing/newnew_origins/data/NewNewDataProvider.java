@@ -5,7 +5,6 @@ import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.gam0zing.newnew_origins.utils.ModTools;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import io.github.apace100.apoli.power.Power;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.data.CachedOutput;
@@ -19,11 +18,11 @@ import java.util.concurrent.CompletableFuture;
 
 /// 这个类是用于生成数据的工具类
 /// 由入口类调用
-public class OriginDataProvider implements DataProvider {
+public class NewNewDataProvider implements DataProvider {
 
     private final PackOutput output;
 
-    public OriginDataProvider(PackOutput output) {
+    public NewNewDataProvider(PackOutput output) {
         this.output = output;
     }
 

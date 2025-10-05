@@ -1,4 +1,4 @@
-package com.gam0zing.newnew_origins.power.action.configuration;
+package com.gam0zing.newnew_origins.origins.power.action.configuration;
 
 import com.gam0zing.newnew_origins.NewNewDataTypes;
 import com.mojang.serialization.Codec;
@@ -22,14 +22,14 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class NewExplodeConfiguration implements IDynamicFeatureConfiguration {
-    public static final Codec<NewExplodeConfiguration> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
-            CalioCodecHelper.FLOAT.fieldOf("power").forGetter(NewExplodeConfiguration::power),
-            CalioCodecHelper.optionalField(NewNewDataTypes.LEVEL_EXPLOSION_INTERACTION, "explosion_interaction", Level.ExplosionInteraction.NONE).forGetter(NewExplodeConfiguration::explosionInteraction),
-            CalioCodecHelper.optionalField(CalioCodecHelper.BOOL, "damage_self", true).forGetter(NewExplodeConfiguration::damageSelf),
-            ConfiguredBlockCondition.optional("indestructible", Apoli.identifier("deny")).forGetter(NewExplodeConfiguration::indestructible),
-            ConfiguredBlockCondition.optional("destructible", Apoli.identifier("deny")).forGetter(NewExplodeConfiguration::destructible),
-            CalioCodecHelper.optionalField(CalioCodecHelper.BOOL, "create_fire", false).forGetter(NewExplodeConfiguration::createFire)).apply(instance, NewExplodeConfiguration::new));
+public final class BlockExplodeActionConfiguration implements IDynamicFeatureConfiguration {
+    public static final Codec<BlockExplodeActionConfiguration> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
+            CalioCodecHelper.FLOAT.fieldOf("power").forGetter(BlockExplodeActionConfiguration::power),
+            CalioCodecHelper.optionalField(NewNewDataTypes.LEVEL_EXPLOSION_INTERACTION, "explosion_interaction", Level.ExplosionInteraction.NONE).forGetter(BlockExplodeActionConfiguration::explosionInteraction),
+            CalioCodecHelper.optionalField(CalioCodecHelper.BOOL, "damage_self", true).forGetter(BlockExplodeActionConfiguration::damageSelf),
+            ConfiguredBlockCondition.optional("indestructible", Apoli.identifier("deny")).forGetter(BlockExplodeActionConfiguration::indestructible),
+            ConfiguredBlockCondition.optional("destructible", Apoli.identifier("deny")).forGetter(BlockExplodeActionConfiguration::destructible),
+            CalioCodecHelper.optionalField(CalioCodecHelper.BOOL, "create_fire", false).forGetter(BlockExplodeActionConfiguration::createFire)).apply(instance, BlockExplodeActionConfiguration::new));
     private final float power;
     private final Level.ExplosionInteraction explosionInteraction;
     private final boolean damageSelf;
@@ -38,7 +38,7 @@ public final class NewExplodeConfiguration implements IDynamicFeatureConfigurati
     private final boolean createFire;
     private final transient Lazy<ExplosionDamageCalculator> explosionCalculator;
 
-    public NewExplodeConfiguration(float power, Level.ExplosionInteraction explosionInteraction, boolean damageSelf, Holder<ConfiguredBlockCondition<?, ?>> indestructible, Holder<ConfiguredBlockCondition<?, ?>> destructible, boolean createFire) {
+    public BlockExplodeActionConfiguration(float power, Level.ExplosionInteraction explosionInteraction, boolean damageSelf, Holder<ConfiguredBlockCondition<?, ?>> indestructible, Holder<ConfiguredBlockCondition<?, ?>> destructible, boolean createFire) {
         this.power = power;
         this.explosionInteraction = explosionInteraction;
         this.damageSelf = damageSelf;
@@ -48,7 +48,7 @@ public final class NewExplodeConfiguration implements IDynamicFeatureConfigurati
         this.explosionCalculator = Lazy.of(() -> this.indestructible().isBound() && this.destructible().isBound() ? new ExplosionDamageCalculator() {
             public @NotNull Optional<Float> getBlockExplosionResistance(@NotNull Explosion explosion, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull FluidState fluid) {
                 Optional<Float> def = super.getBlockExplosionResistance(explosion, world, pos, state, fluid);
-                Optional<Float> ovr = !ConfiguredBlockCondition.check(NewExplodeConfiguration.this.indestructible(), (LevelReader)world, pos, () -> state) || NewExplodeConfiguration.this.destructible().isBound() && ConfiguredBlockCondition.check(NewExplodeConfiguration.this.destructible(), (LevelReader)world, pos, () -> state) ? Optional.empty() : Optional.of(100.0F);
+                Optional<Float> ovr = !ConfiguredBlockCondition.check(BlockExplodeActionConfiguration.this.indestructible(), (LevelReader)world, pos, () -> state) || BlockExplodeActionConfiguration.this.destructible().isBound() && ConfiguredBlockCondition.check(BlockExplodeActionConfiguration.this.destructible(), (LevelReader)world, pos, () -> state) ? Optional.empty() : Optional.of(100.0F);
                 return ovr.isPresent() ? (def.isPresent() ? ((Float)def.get() > (Float)ovr.get() ? def : ovr) : ovr) : def;
             }
         } : new ExplosionDamageCalculator());
@@ -86,7 +86,7 @@ public final class NewExplodeConfiguration implements IDynamicFeatureConfigurati
         if (obj == this) {
             return true;
         } else if (obj != null && obj.getClass() == this.getClass()) {
-            NewExplodeConfiguration that = (NewExplodeConfiguration)obj;
+            BlockExplodeActionConfiguration that = (BlockExplodeActionConfiguration)obj;
             return Float.floatToIntBits(this.power) == Float.floatToIntBits(that.power) && Objects.equals(this.explosionInteraction, that.explosionInteraction) && this.damageSelf == that.damageSelf && Objects.equals(this.indestructible, that.indestructible) && Objects.equals(this.destructible, that.destructible) && this.createFire == that.createFire;
         } else {
             return false;
