@@ -1,8 +1,6 @@
-package com.gam0zing.newnew_origins.utils;
+package com.gam0zing.newnew_origins.util;
 
 import net.minecraft.nbt.CompoundTag;
-
-import java.util.List;
 
 public class TagProvider {
 

@@ -2,9 +2,10 @@ package com.gam0zing.newnew_origins.data;
 
 import com.gam0zing.newnew_origins.ModKeys;
 import com.gam0zing.newnew_origins.NewNewOrigins;
-import com.gam0zing.newnew_origins.utils.ModTools;
+import com.gam0zing.newnew_origins.rigistry.ModParticles;
+import com.gam0zing.newnew_origins.rigistry.ModSounds;
+import com.gam0zing.newnew_origins.util.ModTools;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.data.CachedOutput;
@@ -39,19 +40,21 @@ public class NewNewDataProvider implements DataProvider {
         List<DataSources.PowerWithID> powers = ModTools.getFieldsAsList(DataInstances.Powers.class, DataSources.PowerWithID.class);
         List<Advancement> advancements = ModTools.getFieldsAsList(DataInstances.Advancements.class, Advancement.class);
         List<DataSources.TranslateData> translates = ModTools.getFieldsAsList(ModKeys.Translatable.class, DataSources.TranslateData.class);
+        List<ModSounds.SoundRegistry> sounds = ModTools.getFieldsAsList(ModSounds.class, ModSounds.SoundRegistry.class);
+        List<ModParticles.ParticleRegistry> particles = ModTools.getFieldsAsList(ModParticles.class, ModParticles.ParticleRegistry.class);
 
         for (DataSources.OriginData origin : origins) {
             layer.addOrigin(NewNewOrigins.MODID + ":" + origin.id());
         }
         path = output.getOutputFolder().resolve("data/origins/origin_layers/origin.json");
-        jsonElement = ModTools.getJsonElement(DataSources.Codecs.CODEC_LAYER, layer.build());
+        jsonElement = ModTools.getJsonElement(DataSources.LayerData.CODEC, layer.build());
         if (jsonElement != null) {
             futures.add(DataProvider.saveStable(cache, jsonElement, path));
         }
 
         for (DataSources.OriginData origin : origins) {
             path = output.getOutputFolder().resolve("data/" + NewNewOrigins.MODID + "/origins/" + origin.id() + ".json");
-            jsonElement = ModTools.getJsonElement(DataSources.Codecs.CODEC_ORIGIN, origin);
+            jsonElement = ModTools.getJsonElement(DataSources.OriginData.CODEC, origin);
             if (jsonElement != null) {
                 futures.add(DataProvider.saveStable(cache, jsonElement, path));
             }
@@ -71,18 +74,25 @@ public class NewNewDataProvider implements DataProvider {
         }
 
         path = output.getOutputFolder().resolve("assets/" + NewNewOrigins.MODID + "/lang/en_us.json");
-        JsonObject jsonObject = new JsonObject();
-        for (DataSources.TranslateData translate: translates) {
-            jsonElement = ModTools.getJsonElement(DataSources.Codecs.CODEC_TRANSLATE, translate);
-            if (jsonElement != null && jsonElement.isJsonObject()) {
-                JsonObject transJson = jsonElement.getAsJsonObject();
-                for (Map.Entry<String, JsonElement> entry : transJson.entrySet()) {
-                    jsonObject.add(entry.getKey(), entry.getValue());
-                }
-            }
+        Map<String, String> transMap = new HashMap<>();
+        for (DataSources.TranslateData translate : translates) {
+            transMap.put(translate.key(), translate.value());
         }
-        if (jsonObject.size() > 0) {
-            futures.add(DataProvider.saveStable(cache, jsonObject, path));
+        jsonElement = ModTools.getJsonElement(DataSources.TranslateData.CODEC_MAP, transMap);
+        futures.add(DataProvider.saveStable(cache, jsonElement, path));
+
+        path = output.getOutputFolder().resolve("assets/" + NewNewOrigins.MODID + "/sounds.json");
+        Map<String, DataSources.SoundData.Sounds> soundsMap = new HashMap<>();
+        for (ModSounds.SoundRegistry sound : sounds) {
+             soundsMap.put(sound.data().entry().getKey(), sound.data().entry().getValue());
+        }
+        jsonElement = ModTools.getJsonElement(DataSources.SoundData.CODEC_MAP, soundsMap);
+        futures.add(DataProvider.saveStable(cache, jsonElement, path));
+
+        for (ModParticles.ParticleRegistry particle : particles) {
+            path = output.getOutputFolder().resolve("assets/" + NewNewOrigins.MODID + "/particles/" + particle.data().name() + ".json");
+            jsonElement = ModTools.getJsonElement(DataSources.ParticleData.Particles.CODEC, particle.data().particles());
+            futures.add(DataProvider.saveStable(cache, jsonElement, path));
         }
 
         return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));

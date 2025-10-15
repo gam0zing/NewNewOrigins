@@ -8,7 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-public class NewNewBlockActions {
+public class ModBlockActions {
     public static final DeferredRegister<BlockAction<?>> BLOCK_ACTIONS = DeferredRegister.create(ApoliRegistries.BLOCK_ACTION_KEY, NewNewOrigins.MODID);
 
     public static final RegistryObject<BlockExplodeAction> NEW_EXPLODE = BLOCK_ACTIONS.register("new_explode", BlockExplodeAction::new);

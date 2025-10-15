@@ -12,5 +12,7 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "CooldownPowerFactoryMixin",
+    "ServerPlayerMixin"
   ]
 }

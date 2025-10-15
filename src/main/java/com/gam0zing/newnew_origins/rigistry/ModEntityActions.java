@@ -9,7 +9,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
-public class NewNewEntityActions {
+public class ModEntityActions {
     public static final DeferredRegister<EntityAction<?>> ENTITY_ACTIONS = DeferredRegister.create(ApoliRegistries.ENTITY_ACTION_KEY, NewNewOrigins.MODID);
 
     public static final RegistryObject<EntityExplodeAction> ENTITY_EXPLODE = ENTITY_ACTIONS.register("entity_explode", EntityExplodeAction::new);

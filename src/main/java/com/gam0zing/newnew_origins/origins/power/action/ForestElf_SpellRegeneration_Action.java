@@ -1,23 +1,20 @@
 package com.gam0zing.newnew_origins.origins.power.action;
 
+import com.gam0zing.newnew_origins.entity.SmartAreaEffectCloud;
 import com.gam0zing.newnew_origins.origins.power.action.configuration.ForestElf_SpellRegeneration_ActionConfiguration;
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.github.apace100.apoli.action.configuration.ExplodeConfiguration;
-import io.github.apace100.apoli.util.MiscUtil;
+import com.gam0zing.newnew_origins.rigistry.ModEffects;
+import com.gam0zing.newnew_origins.util.ModTools;
+import com.gam0zing.newnew_origins.util.ParticleHelper;
+import com.gam0zing.newnew_origins.util.SoundHelper;
 import io.github.edwinmindcraft.apoli.api.power.factory.EntityAction;
-import io.github.edwinmindcraft.apoli.common.power.configuration.ActiveSelfConfiguration;
-import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Optional;
 
 public class ForestElf_SpellRegeneration_Action extends EntityAction<ForestElf_SpellRegeneration_ActionConfiguration> {
 
@@ -33,26 +30,29 @@ public class ForestElf_SpellRegeneration_Action extends EntityAction<ForestElf_S
     private void makeEffect(ForestElf_SpellRegeneration_ActionConfiguration configuration, Entity entity) {
         if (!entity.level().isClientSide()) {
             ServerLevel serverWorld = (ServerLevel)entity.level();
-            Optional<Entity> opt$entityToSpawn = MiscUtil.getEntityWithPassengers(serverWorld, EntityType.AREA_EFFECT_CLOUD, null, entity.position(), entity.getYRot(), entity.getXRot());
-            if (opt$entityToSpawn.isPresent()) {
 
-                AreaEffectCloud entityToSpawn = (AreaEffectCloud) opt$entityToSpawn.get();
+            AreaEffectCloud cloud;
 
-                entityToSpawn.setWaitTime(configuration.waitTime());
-                entityToSpawn.setDuration(configuration.duration());
-                entityToSpawn.setRadius(configuration.radius());
-                entityToSpawn.setOwner((LivingEntity) entity);
-                if (configuration.useRegeneration()) entityToSpawn.addEffect(new MobEffectInstance(MobEffects.REGENERATION, configuration.regenerationDuration(), configuration.regenerationLevel() - 1));
-                if (configuration.useHunger()) entityToSpawn.addEffect(new MobEffectInstance(MobEffects.HUNGER, configuration.hungerDuration(), configuration.hungerLevel() - 1));
-                if (configuration.useHarm()) entityToSpawn.addEffect(new MobEffectInstance(MobEffects.HARM, 1, configuration.harmLevel() - 1));
+            if (configuration.isSmart()) cloud = new SmartAreaEffectCloud(serverWorld, entity.getX(), entity.getY(), entity.getZ());
+            else cloud = new AreaEffectCloud(serverWorld, entity.getX(), entity.getY(), entity.getZ());
 
-                entityToSpawn.setRadiusOnUse(0);
-                entityToSpawn.setRadiusPerTick(0);
-                entityToSpawn.setDurationOnUse(0);
-                entityToSpawn.setFixedColor(16716947);
+            if (cloud instanceof SmartAreaEffectCloud) ((SmartAreaEffectCloud) cloud).entityCooldown = configuration.entityCooldown();
+            cloud.setWaitTime(configuration.waitTime());
+            cloud.setDuration(configuration.duration());
+            cloud.setRadius(configuration.radius());
+            cloud.setRadiusPerTick(configuration.radiusPerTick());
+            cloud.setOwner((LivingEntity) entity);
+            if (configuration.useRegeneration()) cloud.addEffect(new MobEffectInstance(ModEffects.ELF_REGENERATION.get(), configuration.regenerationDuration(), configuration.regenerationLevel() - 1));
+            if (configuration.useHunger()) cloud.addEffect(new MobEffectInstance(MobEffects.HUNGER, configuration.hungerDuration(), configuration.hungerLevel() - 1));
+            if (configuration.useHarm()) cloud.addEffect(new MobEffectInstance(ModEffects.ELF_WITHER.get(), 1, configuration.harmLevel() - 1));
+            cloud.setRadiusOnUse(0);
+            cloud.setDurationOnUse(0);
+            cloud.setFixedColor(ModTools.intColor(40,200,10));
+            cloud.setParticle(ParticleHelper.SPELL_REGENERATION);
 
-                serverWorld.tryAddFreshEntityWithPassengers(entityToSpawn);
-            }
+            entity.level().playSound(null, entity.getX(), entity.getY() + entity.getEyeHeight() * 0.5f, entity.getZ(), SoundHelper.POWER_SPELL_REGENERATION, SoundSource.PLAYERS, 1, 1);
+
+            serverWorld.tryAddFreshEntityWithPassengers(cloud);
         }
     }
 }

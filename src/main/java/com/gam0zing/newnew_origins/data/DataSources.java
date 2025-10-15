@@ -1,16 +1,12 @@
 package com.gam0zing.newnew_origins.data;
 
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.github.edwinmindcraft.apoli.api.power.PowerData;
 import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.*;
@@ -24,6 +20,12 @@ public class DataSources {
             boolean replace,
             List<String> origins
     ) {
+        public static final Codec<LayerData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.INT.fieldOf("order").forGetter(LayerData::order),
+                Codec.BOOL.fieldOf("replace").forGetter(LayerData::replace),
+                Codec.STRING.listOf().fieldOf("origins").forGetter(LayerData::origins)
+        ).apply(instance, LayerData::new));
+
         public LayerData {
             origins = List.copyOf(origins);
         }
@@ -83,6 +85,18 @@ public class DataSources {
             List<String> powers,
             List<UpgradeData> upgrades
     ) {
+        public static final Codec<OriginData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("id").forGetter(OriginData::id),
+                Codec.STRING.fieldOf("name").forGetter(OriginData::name),
+                Codec.STRING.fieldOf("description").forGetter(OriginData::description),
+                ItemData.CODEC.fieldOf("icon").forGetter(OriginData::icon),
+                Codec.INT.fieldOf("impact").forGetter(OriginData::impact),
+                Codec.INT.fieldOf("order").forGetter(OriginData::order),
+                Codec.BOOL.fieldOf("unchoosable").forGetter(OriginData::unchoosable),
+                Codec.STRING.listOf().fieldOf("powers").forGetter(OriginData::powers),
+                UpgradeData.CODEC.listOf().fieldOf("upgrades").forGetter(OriginData::upgrades)
+        ).apply(instance, OriginData::new));
+
         public OriginData {
             powers = List.copyOf(powers);
             upgrades = List.copyOf(upgrades);
@@ -175,6 +189,12 @@ public class DataSources {
             String origin,
             String announcement
     ) {
+        public static final Codec<UpgradeData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("condition").forGetter(UpgradeData::condition),
+                Codec.STRING.fieldOf("origin").forGetter(UpgradeData::origin),
+                Codec.STRING.fieldOf("announcement").forGetter(UpgradeData::announcement)
+        ).apply(instance, UpgradeData::new));
+
         public static class Builder {
             private String condition = "undefined";
             private String origin = "undefined";
@@ -210,16 +230,17 @@ public class DataSources {
         }
     }
 
-    public record TranslateData(
-            String key,
-            String value
-    ) {}
-
     public record ItemData(
             String item,
             int count,
             CompoundTag tag
     ) {
+        public static final Codec<ItemData> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                Codec.STRING.fieldOf("item").forGetter(ItemData::item),
+                Codec.INT.fieldOf("count").forGetter(ItemData::count),
+                CompoundTag.CODEC.fieldOf("tag").forGetter(ItemData::tag)
+        ).apply(instance, ItemData::new));
+
         public ItemData {
             if (count < 1) {
                 throw new IllegalArgumentException("count must be positive");
@@ -274,50 +295,80 @@ public class DataSources {
         }
     }
 
-    /// 每个记录类的CODEC，用于读写JSON
-    public static class Codecs {
-        public static final Codec<LayerData> CODEC_LAYER = RecordCodecBuilder.create(instance -> instance.group(
-                Codec.INT.fieldOf("order").forGetter(LayerData::order),
-                Codec.BOOL.fieldOf("replace").forGetter(LayerData::replace),
-                Codec.STRING.listOf().fieldOf("origins").forGetter(LayerData::origins)
-        ).apply(instance, LayerData::new));
+    public record TranslateData(
+            Map.Entry<String, String> entry
+    ) {
+        /// JSON形式：
+        /// {
+        ///     "key": "value",
+        ///     "key": "value"
+        /// }
+        public static Codec<Map<String, String>> CODEC_MAP = Codec.unboundedMap(Codec.STRING, Codec.STRING);
 
-        public static final Codec<ItemData> CODEC_ITEM = RecordCodecBuilder.create(instance -> instance.group(
-                Codec.STRING.fieldOf("item").forGetter(ItemData::item),
-                Codec.INT.fieldOf("count").forGetter(ItemData::count),
-                CompoundTag.CODEC.fieldOf("tag").forGetter(ItemData::tag)
-        ).apply(instance, ItemData::new));
+        public TranslateData(String key, String value) {
+            this(Map.entry(key, value));
+        }
 
-        public static final Codec<UpgradeData> CODEC_UPGRADE = RecordCodecBuilder.create(instance -> instance.group(
-                Codec.STRING.fieldOf("condition").forGetter(UpgradeData::condition),
-                Codec.STRING.fieldOf("origin").forGetter(UpgradeData::origin),
-                Codec.STRING.fieldOf("announcement").forGetter(UpgradeData::announcement)
-        ).apply(instance, UpgradeData::new));
+        public String key() {
+            return this.entry().getKey();
+        }
 
-        public static final Codec<OriginData> CODEC_ORIGIN = RecordCodecBuilder.create(instance -> instance.group(
-                Codec.STRING.fieldOf("id").forGetter(OriginData::id),
-                Codec.STRING.fieldOf("name").forGetter(OriginData::name),
-                Codec.STRING.fieldOf("description").forGetter(OriginData::description),
-                CODEC_ITEM.fieldOf("icon").forGetter(OriginData::icon),
-                Codec.INT.fieldOf("impact").forGetter(OriginData::impact),
-                Codec.INT.fieldOf("order").forGetter(OriginData::order),
-                Codec.BOOL.fieldOf("unchoosable").forGetter(OriginData::unchoosable),
-                Codec.STRING.listOf().fieldOf("powers").forGetter(OriginData::powers),
-                CODEC_UPGRADE.listOf().fieldOf("upgrades").forGetter(OriginData::upgrades)
-        ).apply(instance, OriginData::new));
+        public String value() {
+            return this.entry().getValue();
+        }
+    }
 
-        public static final Codec<TranslateData> CODEC_TRANSLATE = Codec.unboundedMap(Codec.STRING, Codec.STRING)
-                .comapFlatMap(
-                        map -> {
-                            if (map.size() == 1) {
-                                Map.Entry<String, String> entry = map.entrySet().iterator().next();
-                                TranslateData data = new TranslateData(entry.getKey(), entry.getValue());
-                                return DataResult.success(data);
-                            } else {
-                                return DataResult.error(() -> "Expected exactly one key-value pair");
-                            }
-                        },
-                        translateData -> Map.of(translateData.key(), translateData.value())
-                );
+    public record SoundData(
+            Map.Entry<String, Sounds> entry
+    ) {
+        /// JSON形式：
+        /// {
+        ///     "sound_name":{},
+        ///     "sound_name":{}
+        /// }
+        public static Codec<Map<String, Sounds>> CODEC_MAP = Codec.unboundedMap(Codec.STRING, Sounds.CODEC);
+
+        public SoundData(String name, Sounds sounds) {
+            this(Map.entry(name, sounds));
+        }
+        public SoundData(String key, List<String> sounds) {
+            this(key, new Sounds(List.copyOf(sounds)));
+        }
+
+        public record Sounds(
+                List<String> sounds
+        ) {
+            /// JSON形式：
+            /// {
+            ///     "sounds": [
+            ///         "modid:sound"
+            ///     ]
+            /// }
+            public static Codec<Sounds> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                    Codec.STRING.listOf().optionalFieldOf("sounds", new ArrayList<>()).forGetter(Sounds::sounds)
+            ).apply(instance, Sounds::new));
+        }
+    }
+
+    public record ParticleData(
+            String name,
+            Particles particles
+    ) {
+        public ParticleData(String name, List<String> textures) {
+            this(name, new Particles(List.copyOf(textures)));
+        }
+        public record Particles(
+                List<String> textures
+        ) {
+            /// JSON形式：
+            /// {
+            ///     "textures": [
+            ///         "modid:texture"
+            ///     ]
+            /// }
+            public static Codec<Particles> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                    Codec.STRING.listOf().optionalFieldOf("textures", new ArrayList<>()).forGetter(Particles::textures)
+            ).apply(instance, Particles::new));
+        }
     }
 }

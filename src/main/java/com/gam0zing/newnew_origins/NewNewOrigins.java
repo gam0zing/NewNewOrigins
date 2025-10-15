@@ -1,8 +1,6 @@
 package com.gam0zing.newnew_origins;
 
-import com.gam0zing.newnew_origins.rigistry.NewNewBlockActions;
-import com.gam0zing.newnew_origins.rigistry.NewNewEntityActions;
-import com.gam0zing.newnew_origins.rigistry.NewNewEntityConditions;
+import com.gam0zing.newnew_origins.rigistry.*;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -14,7 +12,12 @@ public class NewNewOrigins {
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public NewNewOrigins(FMLJavaModLoadingContext context) {
-        NewNewBlockActions.register(context.getModEventBus());
-        NewNewEntityActions.register(context.getModEventBus());
+
+        ModAttributes.register(context.getModEventBus());
+        ModEffects.register(context.getModEventBus());
+        ModParticles.register(context.getModEventBus());
+        ModSounds.register(context.getModEventBus());
+        ModBlockActions.register(context.getModEventBus());
+        ModEntityActions.register(context.getModEventBus());
     }
 }

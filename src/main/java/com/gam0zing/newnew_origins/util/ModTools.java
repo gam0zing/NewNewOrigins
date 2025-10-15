@@ -1,18 +1,15 @@
-package com.gam0zing.newnew_origins.utils;
+package com.gam0zing.newnew_origins.util;
 
 import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
-import io.github.edwinmindcraft.apoli.api.power.configuration.ConfiguredPower;
 
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ModTools {
 
@@ -61,5 +58,14 @@ public class ModTools {
     /// 获取全称ID
     public static String fullID(String id) {
         return NewNewOrigins.MODID + ":" + id;
+    }
+
+    /// 获取整数10进制颜色
+    public static int intColor(int red, int green, int blue) {
+        red = Math.max(Math.min(red, 255), 0);
+        green = Math.max(Math.min(green, 255), 0);
+        blue = Math.max(Math.min(blue, 255), 0);
+
+        return (red<<16) + (green<<8) + blue;
     }
 }
