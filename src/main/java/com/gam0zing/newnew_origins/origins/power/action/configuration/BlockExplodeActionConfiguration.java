@@ -1,6 +1,6 @@
 package com.gam0zing.newnew_origins.origins.power.action.configuration;
 
-import com.gam0zing.newnew_origins.NewNewDataTypes;
+import com.gam0zing.newnew_origins.ModDataTypes;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.github.apace100.apoli.Apoli;
@@ -25,7 +25,7 @@ import java.util.Optional;
 public final class BlockExplodeActionConfiguration implements IDynamicFeatureConfiguration {
     public static final Codec<BlockExplodeActionConfiguration> CODEC = RecordCodecBuilder.create((instance) -> instance.group(
             CalioCodecHelper.FLOAT.fieldOf("power").forGetter(BlockExplodeActionConfiguration::power),
-            CalioCodecHelper.optionalField(NewNewDataTypes.LEVEL_EXPLOSION_INTERACTION, "explosion_interaction", Level.ExplosionInteraction.NONE).forGetter(BlockExplodeActionConfiguration::explosionInteraction),
+            CalioCodecHelper.optionalField(ModDataTypes.LEVEL_EXPLOSION_INTERACTION, "explosion_interaction", Level.ExplosionInteraction.NONE).forGetter(BlockExplodeActionConfiguration::explosionInteraction),
             CalioCodecHelper.optionalField(CalioCodecHelper.BOOL, "damage_self", true).forGetter(BlockExplodeActionConfiguration::damageSelf),
             ConfiguredBlockCondition.optional("indestructible", Apoli.identifier("deny")).forGetter(BlockExplodeActionConfiguration::indestructible),
             ConfiguredBlockCondition.optional("destructible", Apoli.identifier("deny")).forGetter(BlockExplodeActionConfiguration::destructible),

@@ -4,7 +4,6 @@ import com.gam0zing.newnew_origins.ModKeys;
 import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.gam0zing.newnew_origins.origins.power.action.configuration.ForestElf_SpellRegeneration_ActionConfiguration;
 import com.gam0zing.newnew_origins.rigistry.ModEntityActions;
-import com.gam0zing.newnew_origins.util.ModTools;
 import io.github.apace100.apoli.util.HudRender;
 import io.github.apace100.origins.registry.ModItems;
 import io.github.edwinmindcraft.apoli.api.power.IActivePower;
@@ -42,7 +41,7 @@ public class DataInstances {
                         .order(2)
                         .unchoosable(false)
                         .powers(
-                                ModTools.fullID(Powers.SPELL_REGENERATION.id())
+                                NewNewOrigins.fullID(Powers.SPELL_REGENERATION.id())
                         )
                         .upgrades(
                                 Upgrades.UP_TO_FOREST_ELF_2
@@ -58,10 +57,10 @@ public class DataInstances {
                         .order(2)
                         .unchoosable(false)
                         .powers(
-                                ModTools.fullID(Powers.SPELL_REGENERATION.id())
+                                NewNewOrigins.fullID(Powers.SPELL_REGENERATION.id())
                         )
                         .upgrades(
-
+                                Upgrades.UP_TO_FOREST_ELF_3
                         )
                         .build();
         public static final DataSources.OriginData FOREST_ELF_3 =
@@ -74,10 +73,10 @@ public class DataInstances {
                         .order(2)
                         .unchoosable(false)
                         .powers(
-                                ModTools.fullID(Powers.SPELL_REGENERATION_PLUS.id())
+                                NewNewOrigins.fullID(Powers.SPELL_REGENERATION_PLUS.id())
                         )
                         .upgrades(
-                                Upgrades.UP_TO_FOREST_ELF_3
+
                         )
                         .build();
     }
@@ -168,54 +167,22 @@ public class DataInstances {
     public static class Upgrades {
 
         public static final DataSources.UpgradeData UP_TO_FOREST_ELF_2 = DataSources.UpgradeData.builder()
-                .origin(ModTools.fullID(ModKeys.ID.ORIGIN_ID_FOREST_ELF_2))
-                .condition(ModKeys.ID.ADVANCEMENT_ID_UP_TO_FOREST_ELF_2)
+                .origin(NewNewOrigins.fullID(ModKeys.ID.ORIGIN_ID_FOREST_ELF_2))
+                .condition(NewNewOrigins.fullID(ModKeys.ID.ADVANCEMENT_ID_UP_TO_FOREST_ELF_2))
                 .announcement(ModKeys.Translatable.UPGRADE_TO_FOREST_ELF_2.key())
                 .build();
 
         public static final DataSources.UpgradeData UP_TO_FOREST_ELF_3 = DataSources.UpgradeData.builder()
-                .origin(ModTools.fullID(ModKeys.ID.ORIGIN_ID_FOREST_ELF_3))
-                .condition(ModKeys.ID.ADVANCEMENT_ID_UP_TO_FOREST_ELF_3)
+                .origin(NewNewOrigins.fullID(ModKeys.ID.ORIGIN_ID_FOREST_ELF_3))
+                .condition(NewNewOrigins.fullID(ModKeys.ID.ADVANCEMENT_ID_UP_TO_FOREST_ELF_3))
                 .announcement(ModKeys.Translatable.UPGRADE_TO_FOREST_ELF_3.key())
                 .build();
     }
 
     public static class Advancements {
-        //根节点
-        public static final Advancement CONDITION_ROOT =
-                Advancement.Builder.advancement()
-                        .display(
-                                new ItemStack(ModItems.ORB_OF_ORIGIN.get()),
-                                Component.translatable(ModKeys.Translatable.ADVANCEMENT_NAME_ROOT.key()),
-                                Component.translatable(ModKeys.Translatable.ADVANCEMENT_DESCRIPTION_ROOT.key()),
-                                null,
-                                FrameType.TASK,
-                                false,
-                                true,
-                                false
-                        )
-                        .addCriterion(ModKeys.ID.ADVANCEMENT_ID_ROOT, new Criterion(new ImpossibleTrigger.TriggerInstance()))
-                        .build(ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, ModKeys.ID.ADVANCEMENT_ID_ROOT));
-        //森精灵 选择起源
-        public static final Advancement CONDITION_BECOME_FOREST_ELF =
-                Advancement.Builder.advancement()
-                        .parent(CONDITION_ROOT)
-                        .display(
-                                new ItemStack(Items.OAK_SAPLING),
-                                Component.translatable(ModKeys.Translatable.ADVANCEMENT_NAME_BECOME_FOREST_ELF.key()),
-                                Component.translatable(ModKeys.Translatable.ADVANCEMENT_DESCRIPTION_BECOME_FOREST_ELF.key()),
-                                null,
-                                FrameType.TASK,
-                                false,
-                                true,
-                                false
-                        )
-                        .addCriterion(ModKeys.ID.ADVANCEMENT_ID_BECOME_FOREST_ELF, new Criterion(new ImpossibleTrigger.TriggerInstance()))
-                        .build(ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, ModKeys.ID.ADVANCEMENT_ID_BECOME_FOREST_ELF));
         //森精灵 升到2级
         public static final Advancement CONDITION_UP_TO_FOREST_ELF_2 =
                 Advancement.Builder.advancement()
-                        .parent(CONDITION_BECOME_FOREST_ELF)
                         .display(
                                 new ItemStack(Items.OAK_SAPLING),
                                 Component.translatable(ModKeys.Translatable.ADVANCEMENT_NAME_UP_TO_FOREST_ELF_2.key()),

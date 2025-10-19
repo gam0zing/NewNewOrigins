@@ -1,6 +1,5 @@
 package com.gam0zing.newnew_origins.util;
 
-import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.google.gson.JsonElement;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
@@ -53,11 +52,6 @@ public class ModTools {
         else {
             return null;
         }
-    }
-
-    /// 获取全称ID
-    public static String fullID(String id) {
-        return NewNewOrigins.MODID + ":" + id;
     }
 
     /// 获取整数10进制颜色

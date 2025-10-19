@@ -12,32 +12,32 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = CooldownPowerFactory.class)
+@Mixin(value = CooldownPowerFactory.class, priority = 1000, remap = false)
 public abstract class CooldownPowerFactoryMixin<T extends ICooldownPowerConfiguration> {
 
-    @Shadow(remap = false) protected abstract long getLastUseTime(ConfiguredPower<T, ?> configuration, Entity entity);
+    @Shadow protected abstract long getLastUseTime(ConfiguredPower<T, ?> configuration, Entity entity);
 
-    @Shadow(remap = false)
+    @Shadow
     public int getValue(ConfiguredPower<T, ?> configuration, Entity entity) {
         return Math.toIntExact((long)Mth.clamp((float)this.getRemainingDuration(configuration, entity), (float)this.getMinimum(configuration, entity), (float)this.getMaximum(configuration, entity)));
     }
 
-    @Shadow(remap = false)
+    @Shadow
     public int getMaximum(ConfiguredPower<T, ?> configuration, Entity entity) {
         return ((ICooldownPowerConfiguration)configuration.getConfiguration()).duration();
     }
 
-    @Shadow(remap = false)
+    @Shadow
     public int getMinimum(ConfiguredPower<T, ?> configuration, Entity entity) {
         return 0;
     }
 
-    @Shadow(remap = false)
+    @Shadow
     protected long getRemainingDuration(ConfiguredPower<T, ?> configuration, Entity entity) {
         return Math.max(this.getLastUseTime(configuration, entity) + (long)((ICooldownPowerConfiguration)configuration.getConfiguration()).duration() - entity.getCommandSenderWorld().getGameTime(), 0L);
     }
 
-    @Inject(method = "getRemainingDuration", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "getRemainingDuration", at = @At("HEAD"), cancellable = true)
     protected void getRemainingDurationMixin(ConfiguredPower<T, ?> configuration, Entity entity, CallbackInfoReturnable<Long> cir) {
         if (entity instanceof LivingEntity living) {
             if (living.getAttribute(ModAttributes.POWER_COOLDOWN_SPEED.get()) == null) return;
@@ -49,7 +49,7 @@ public abstract class CooldownPowerFactoryMixin<T extends ICooldownPowerConfigur
         }
     }
 
-    @Inject(method = "getMaximum", at = @At("HEAD"), cancellable = true, remap = false)
+    @Inject(method = "getMaximum", at = @At("HEAD"), cancellable = true)
     public void getMaximumMixin(ConfiguredPower<T, ?> configuration, Entity entity, CallbackInfoReturnable<Integer> cir) {
         if (entity instanceof LivingEntity living) {
             if (living.getAttribute(ModAttributes.POWER_COOLDOWN_SPEED.get()) == null) return;

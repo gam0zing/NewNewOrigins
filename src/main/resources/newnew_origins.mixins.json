@@ -13,6 +13,6 @@
   },
   "mixins": [
     "CooldownPowerFactoryMixin",
-    "ServerPlayerMixin"
+    "OriginsContainerMixin"
   ]
 }

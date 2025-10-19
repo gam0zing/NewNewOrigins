@@ -3,7 +3,6 @@ package com.gam0zing.newnew_origins.rigistry;
 import com.gam0zing.newnew_origins.ModKeys;
 import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.gam0zing.newnew_origins.data.DataSources;
-import com.gam0zing.newnew_origins.util.ModTools;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -19,7 +18,7 @@ public class ModParticles {
 
     public static final ParticleRegistry SPELL_REGENERATION = registerParticle(
             ModKeys.ID.PARTICLE_ID_SPELL_REGENERATION,
-            getSpritesByList(ModTools.fullID(ModKeys.ID.PARTICLE_ID_SPELL_REGENERATION), 8)
+            getSpritesByList(NewNewOrigins.fullID(ModKeys.ID.PARTICLE_ID_SPELL_REGENERATION), 8)
     );
 
     private static ParticleRegistry registerParticle(String name, List<String> particles) {
