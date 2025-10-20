@@ -2,8 +2,6 @@ package com.gam0zing.newnew_origins.upgrade;
 
 import io.github.edwinmindcraft.origins.api.origin.Origin;
 import io.github.edwinmindcraft.origins.api.origin.OriginLayer;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.core.Holder;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceKey;
 import net.minecraftforge.common.util.INBTSerializable;

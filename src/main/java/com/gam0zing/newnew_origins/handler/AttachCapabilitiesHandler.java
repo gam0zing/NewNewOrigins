@@ -1,4 +1,4 @@
-package com.gam0zing.newnew_origins.handlers;
+package com.gam0zing.newnew_origins.handler;
 
 import com.gam0zing.newnew_origins.NewNewOrigins;
 import com.gam0zing.newnew_origins.upgrade.UpgradeComponent;

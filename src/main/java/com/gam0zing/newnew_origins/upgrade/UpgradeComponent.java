@@ -1,7 +1,7 @@
 package com.gam0zing.newnew_origins.upgrade;
 
 import com.gam0zing.newnew_origins.NewNewOrigins;
-import com.gam0zing.newnew_origins.events.SetOriginEvent;
+import com.gam0zing.newnew_origins.event.SetOriginEvent;
 import com.gam0zing.newnew_origins.rigistry.ModCapabilities;
 import io.github.edwinmindcraft.origins.api.OriginsAPI;
 import io.github.edwinmindcraft.origins.api.capabilities.IOriginContainer;

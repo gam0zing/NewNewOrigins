@@ -1,10 +1,8 @@
 package com.gam0zing.newnew_origins;
 
-import com.gam0zing.newnew_origins.handlers.AttachCapabilitiesHandler;
 import com.gam0zing.newnew_origins.rigistry.*;
 import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.Entity;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -19,17 +17,7 @@ public class NewNewOrigins {
         IEventBus eventBus = context.getModEventBus();
 
         ModAttributes.register(eventBus);
-        ModEffects.register(eventBus);
-        ModParticles.register(eventBus);
-        ModSounds.register(eventBus);
-        ModBlockActions.register(eventBus);
-        ModEntityActions.register(eventBus);
         ModCapabilities.register(eventBus);
-    }
-
-    /// 获取全称ID
-    public static String fullID(String id) {
-        return MODID + ":" + id;
     }
 
     /// 获取全称路径

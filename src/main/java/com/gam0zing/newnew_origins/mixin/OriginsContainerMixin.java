@@ -1,9 +1,8 @@
 package com.gam0zing.newnew_origins.mixin;
 
-import com.gam0zing.newnew_origins.events.SetOriginEvent;
+import com.gam0zing.newnew_origins.event.SetOriginEvent;
 import com.gam0zing.newnew_origins.rigistry.ModCapabilities;
 import com.gam0zing.newnew_origins.upgrade.IUpgradeComponent;
-import com.gam0zing.newnew_origins.upgrade.UpgradeComponent;
 import io.github.edwinmindcraft.origins.api.OriginsAPI;
 import io.github.edwinmindcraft.origins.api.origin.Origin;
 import io.github.edwinmindcraft.origins.api.origin.OriginLayer;
@@ -13,13 +12,11 @@ import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;

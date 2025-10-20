@@ -1,4 +1,4 @@
-package com.gam0zing.newnew_origins.events;
+package com.gam0zing.newnew_origins.event;
 
 import io.github.edwinmindcraft.origins.api.origin.Origin;
 import io.github.edwinmindcraft.origins.api.origin.OriginLayer;
