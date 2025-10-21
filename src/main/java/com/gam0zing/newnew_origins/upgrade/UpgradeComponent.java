@@ -165,26 +165,33 @@ public class UpgradeComponent implements IUpgradeComponent, ICapabilitySerializa
     /// 应当传入根起源，否则可能无法定位成就
     public void refreshAdvancements(@Nullable Origin origin) {
         if (origin == null) return;
-        origin.getUpgrades().forEach(upgrade -> {
-            revokeAdvancementsFrom((ServerPlayer) player, upgrade.advancement());
-        });
+        Set<Advancement> advancements = new HashSet<>();
+        getAllUpgradeAdvancements(origin, advancements, new HashSet<>());
+        advancements.forEach(advancement -> revokeAdvancement((ServerPlayer) this.player, advancement));
         NewNewOrigins.LOGGER.debug("Capability：重置进度");
     }
 
     //#region 进度相关
-    /// 撤销该进化分支的所有进度，传入的进度 ID 应当是该起源系列根起源的其中一个进化条件
-    public void revokeAdvancementsFrom(ServerPlayer player, ResourceLocation advancementId) {
-        Advancement start = player.server.getAdvancements().getAdvancement(advancementId);
-        if (start == null) {
-            NewNewOrigins.LOGGER.warn("Advancement not found: {}", advancementId);
-            return;
-        }
-        Set<Advancement> advancements = this.getAllChildren(start);
-        advancements.forEach(advancement -> {
-            revokeAdvancement(player, advancement);
+    /// 传入一个起源，将该起源的所有进化成就全部加入列表，并对该起源的所有进化起源再次调用这个方法
+    /// @param lastStep 用于在单个递归分支调用内记录已经存在的进化目标，防止循环引用导致的崩溃，仅应该传入new HashSet()
+    private void getAllUpgradeAdvancements(@NotNull Origin origin, Set<Advancement> output, Set<ResourceKey<Origin>> lastStep) {
+        if (this.player.getServer() == null) return;
+
+        origin.getUpgrades().forEach(upgrade -> {
+            //先查看是不是有效进化，一般不可能出现这类情况，这一步仅用于规避编译器警告
+            if (upgrade.origin().unwrapKey().isEmpty()) return;
+            if (!upgrade.origin().isBound()) return;
+            //记录当前进化的成就
+            Advancement advancement = player.getServer().getAdvancements().getAdvancement(upgrade.advancement());
+            if (advancement != null) output.add(advancement);
+            //记录进化起源，进行循环引用检查，如果构成循环引用，则将当前分支的递归中断
+            ResourceKey<Origin> resourceKey = upgrade.origin().unwrapKey().get();
+            if (lastStep.contains(resourceKey)) return;
+            //如果不构成循环引用，则记录起源，并继续进入子分支
+            Set<ResourceKey<Origin>> thisStep = new HashSet<>(lastStep);
+            thisStep.add(resourceKey);
+            getAllUpgradeAdvancements(upgrade.origin().get(), output, thisStep);
         });
-        NewNewOrigins.LOGGER.debug("Revoked {} advancements from {}",
-                advancements.size(), start.getId());
     }
 
     /// 撤销传入进度的所有条件
@@ -192,22 +199,6 @@ public class UpgradeComponent implements IUpgradeComponent, ICapabilitySerializa
         AdvancementProgress progress = player.getAdvancements().getOrStartProgress(advancement);
         for (String criterion : progress.getCompletedCriteria()) {
             player.getAdvancements().revoke(advancement, criterion);
-        }
-    }
-
-    /// 递归查找所有子节点
-    private Set<Advancement> getAllChildren(Advancement advancement) {
-        Set<Advancement> ret = new HashSet<>();
-        getAllChildrenRecursive(advancement, ret);
-        return ret;
-    }
-
-    /// 递归方法
-    private void getAllChildrenRecursive(Advancement advancement, Set<Advancement> visited) {
-        if (advancement == null || visited.contains(advancement)) return;
-        visited.add(advancement);
-        for (Advancement child : advancement.getChildren()) {
-            getAllChildrenRecursive(child, visited);
         }
     }
     //#endregion
