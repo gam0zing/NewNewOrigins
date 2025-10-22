@@ -134,19 +134,46 @@ tasks.named('jar', Jar).configure {
     finalizedBy 'reobfJar'
 }
 
+tasks.withType(GenerateModuleMetadata) {
+    enabled = false //必须禁用，这个任务用于在发布文件中生成 module 文件，其中包含了依赖信息，和 pom 一样受到了 deobf 的污染，不一样的是这个每办法修改。启用这个将导致发布文件不可用
+}
+
+tasks.register('sourcesJar', Jar) {
+    archiveClassifier = 'sources'
+    from sourceSets.main.allSource
+}
+
 publishing {
     publications {
-        register('mavenJava', MavenPublication) {
-            artifact jar
+        mavenJava(MavenPublication) {
+            groupId = mod_group_id
+            artifactId = mod_id
+            version = "${minecraft_version}-${mod_version}"
+
+            from components.java
+            artifact sourcesJar
+
+            //清理 pom 依赖，否则开发环境引用会出问题
+            pom {
+                withXml {
+                    def root = asNode()
+
+                    if (root.dependencies?.size() > 0) {
+                        root.remove(root.dependencies[0])
+                    }
+                }
+            }
         }
     }
+
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            name = 'githubPages'
+            url = uri("../${mod_id}-maven/releases")
         }
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.encoding = 'UTF-8'
 }

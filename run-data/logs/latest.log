@@ -1,0 +1,278 @@
+[1910月2025 10:29:47.083] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\godji\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.1, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, newnew_origins, --all, --output, D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\src\generated\resources, --existing, D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\src\main\resources, --mixin.config, newnew_origins.mixins.json]
+[1910月2025 10:29:47.106] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.12 by Oracle Corporation; OS Windows 11 arch amd64 version 10.0
+[1910月2025 10:29:47.227] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[1910月2025 10:29:47.292] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/godji/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[1910月2025 10:29:47.640] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\godji\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.1\97b774cead20444ed9d0c2de762881a15d872397\javafmllanguage-1.20.1-47.4.1.jar is missing mods.toml file
+[1910月2025 10:29:47.640] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\godji\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.1\da4a2af4a4ebbbb33e35b292a16fe3f7122b236\lowcodelanguage-1.20.1-47.4.1.jar is missing mods.toml file
+[1910月2025 10:29:47.649] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\godji\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.1\75a8f0757adad78cbd8108dff9e0d39cbdb3d787\mclanguage-1.20.1-47.4.1.jar is missing mods.toml file
+[1910月2025 10:29:47.654] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\godji\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.1\3061e70b85c05f936d9fa24477be4d4205d8f6b8\fmlcore-1.20.1-47.4.1.jar is missing mods.toml file
+[1910月2025 10:29:47.861] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 2 dependencies adding them to mods collection
+[1910月2025 10:29:49.423] [main/WARN] [mixin/]: Compatibility level JAVA_17 specified by newnew_origins.mixins.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[1910月2025 10:29:49.427] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[1910月2025 10:29:49.450] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\godji\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, newnew_origins, --all, --output, D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\src\generated\resources, --existing, D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\src\main\resources]
+[1910月2025 10:29:49.529] [main/INFO] [mixin/]: Attempting to load Fernflower decompiler (Threaded mode)
+[1910月2025 10:29:49.529] [main/INFO] [mixin/]: Fernflower could not be loaded, exported classes will not be decompiled. NoClassDefFoundError: org/jetbrains/java/decompiler/main/extern/IResultSaver
+[1910月2025 10:29:49.650] [main/INFO] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[1910月2025 10:29:49.650] [main/INFO] [mixin/]: Selecting config newnew_origins.mixins.json
+[1910月2025 10:29:49.654] [main/WARN] [mixin/]: Reference map 'newnew_origins.mixins.refmap.json' for newnew_origins.mixins.json could not be read. If this is a development environment you can ignore this message
+[1910月2025 10:29:49.654] [main/INFO] [mixin/]: Selecting config pehkui.mixins.json
+[1910月2025 10:29:49.965] [main/INFO] [mixin/]: Remapping refMap Pehkui-refmap.json using D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\build\createSrgToMcp\output.srg
+[1910月2025 10:29:49.965] [main/INFO] [mixin/]: Selecting config mixinextras.init.mixins.json
+[1910月2025 10:29:50.104] [main/INFO] [mixin/]: Selecting config calio.mixins.json
+[1910月2025 10:29:50.107] [main/INFO] [mixin/]: Remapping refMap calio.refmap.json using D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\build\createSrgToMcp\output.srg
+[1910月2025 10:29:50.107] [main/INFO] [mixin/]: Selecting config caelus.mixins.json
+[1910月2025 10:29:50.107] [main/INFO] [mixin/]: Remapping refMap caelus.refmap.json using D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\build\createSrgToMcp\output.srg
+[1910月2025 10:29:50.107] [main/INFO] [mixin/]: Selecting config apoli.mixins.json
+[1910月2025 10:29:50.133] [main/INFO] [mixin/]: Remapping refMap apoli.refmap.json using D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\build\createSrgToMcp\output.srg
+[1910月2025 10:29:50.133] [main/INFO] [mixin/]: Selecting config origins.mixins.json
+[1910月2025 10:29:50.133] [main/INFO] [mixin/]: Remapping refMap origins.refmap.json using D:\工作区\我的世界\开发文件\模组工程文件\我的\NewNewOrigins-1.20.1\build\createSrgToMcp\output.srg
+[1910月2025 10:29:50.136] [main/INFO] [mixin/]: Preparing newnew_origins.mixins.json (2)
+[1910月2025 10:29:50.187] [main/INFO] [mixin/]: Preparing pehkui.mixins.json (280)
+[1910月2025 10:29:50.974] [main/INFO] [mixin/]: Preparing mixinextras.init.mixins.json (0)
+[1910月2025 10:29:50.974] [main/INFO] [mixin/]: Preparing calio.mixins.json (1)
+[1910月2025 10:29:50.974] [main/INFO] [mixin/]: Preparing caelus.mixins.json (4)
+[1910月2025 10:29:50.974] [main/INFO] [mixin/]: Preparing apoli.mixins.json (54)
+[1910月2025 10:29:51.115] [main/INFO] [mixin/]: Preparing origins.mixins.json (10)
+[1910月2025 10:29:51.168] [main/INFO] [mixin/]: Prepared 216 mixins in 1.514 sec (7.0ms avg) (0ms load, 0ms transform, 0ms plugin)
+[1910月2025 10:29:51.578] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [newnew_origins]
+[1910月2025 10:29:51.596] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.3.6).
+[1910月2025 10:29:51.610] [main/INFO] [mixin/]: Mixing MappedRegistryMixin from calio.mixins.json into net.minecraft.core.MappedRegistry
+[1910月2025 10:29:51.830] [main/INFO] [mixin/]: Mixing forge.BlockBehaviourMixin from apoli.mixins.json into net.minecraft.world.level.block.state.BlockBehaviour
+[1910月2025 10:29:51.830] [main/INFO] [mixin/]: Renaming synthetic method lambda$allowUnbreakableBreaking$1(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$allowUnbreakableBreaking$1$0 in apoli.mixins.json:forge.BlockBehaviourMixin
+[1910月2025 10:29:51.830] [main/INFO] [mixin/]: Renaming synthetic method lambda$allowUnbreakableBreaking$0(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/state/BlockState; to mdd72c2e$lambda$allowUnbreakableBreaking$0$1 in apoli.mixins.json:forge.BlockBehaviourMixin
+[1910月2025 10:29:51.940] [main/INFO] [mixin/]: Mixing EntityMixin from pehkui.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:51.958] [main/INFO] [mixin/]: Mixing ThreadSafeScaledEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:51.971] [main/INFO] [mixin/]: Mixing compat117plus.EntityCalculateDimensionsMixin from pehkui.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:51.972] [main/INFO] [mixin/]: Renaming synthetic method lambda$pehkui$calculateDimensions$0(Lnet/minecraft/world/entity/Entity;DLnet/minecraft/world/phys/Vec3;)V to mdd72c2e$lambda$pehkui$calculateDimensions$0$0 in pehkui.mixins.json:compat117plus.EntityCalculateDimensionsMixin
+[1910月2025 10:29:52.019] [main/INFO] [mixin/]: Mixing compat117plus.EntityMixin from pehkui.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:52.023] [main/INFO] [mixin/]: Mixing compat1204minus.compat116plus.EntityMixin from pehkui.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:52.023] [main/INFO] [mixin/]: Mixing compat120plus.EntityMixin from pehkui.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:52.023] [main/INFO] [mixin/]: Mixing step_height.compat1194plus.EntityMixin from pehkui.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:52.023] [main/INFO] [mixin/]: Mixing EntityAccessor from apoli.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:52.027] [main/INFO] [mixin/]: Mixing EntityMixin from apoli.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:52.036] [main/INFO] [mixin/]: Renaming synthetic method lambda$modifyMovementVelocityXZ$2(Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$modifyMovementVelocityXZ$2$1 in apoli.mixins.json:EntityMixin
+[1910月2025 10:29:52.036] [main/INFO] [mixin/]: Renaming synthetic method lambda$modifyMovementVelocityXZ$1(Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$modifyMovementVelocityXZ$1$2 in apoli.mixins.json:EntityMixin
+[1910月2025 10:29:52.036] [main/INFO] [mixin/]: Renaming synthetic method lambda$modifyMovementVelocityXZ$0(Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$modifyMovementVelocityXZ$0$3 in apoli.mixins.json:EntityMixin
+[1910月2025 10:29:52.050] [main/INFO] [mixin/]: Mixing SelectionInvulnerabilityMixin from origins.mixins.json into net.minecraft.world.entity.Entity
+[1910月2025 10:29:52.050] [main/INFO] [mixin/]: Renaming synthetic method lambda$makeOriginInvulnerable$3(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;Lnet/minecraft/world/entity/Entity;Lio/github/edwinmindcraft/origins/api/capabilities/IOriginContainer;)V to mdd72c2e$lambda$makeOriginInvulnerable$3$4 in origins.mixins.json:SelectionInvulnerabilityMixin
+[1910月2025 10:29:52.050] [main/INFO] [mixin/]: Renaming synthetic method lambda$makeOriginInvulnerable$2(Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder$Reference;)Ljava/lang/String; to mdd72c2e$lambda$makeOriginInvulnerable$2$5 in origins.mixins.json:SelectionInvulnerabilityMixin
+[1910月2025 10:29:52.050] [main/INFO] [mixin/]: Renaming synthetic method lambda$makeOriginInvulnerable$1(Ljava/util/Optional;)Ljava/util/stream/Stream; to mdd72c2e$lambda$makeOriginInvulnerable$1$6 in origins.mixins.json:SelectionInvulnerabilityMixin
+[1910月2025 10:29:52.051] [main/INFO] [mixin/]: Renaming synthetic method lambda$makeOriginInvulnerable$0(Lio/github/edwinmindcraft/origins/api/capabilities/IOriginContainer;Lnet/minecraft/world/entity/Entity;Lnet/minecraft/core/Holder$Reference;)Z to mdd72c2e$lambda$makeOriginInvulnerable$0$7 in origins.mixins.json:SelectionInvulnerabilityMixin
+[1910月2025 10:29:52.324] [main/INFO] [mixin/]: Mixing step_height.IForgeEntityMixin from pehkui.mixins.json into net.minecraftforge.common.extensions.IForgeEntity
+[1910月2025 10:29:52.346] [main/INFO] [mixin/]: Mixing reach.PlayerEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.346] [main/INFO] [mixin/]: Mixing PlayerEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.350] [main/INFO] [mixin/]: Mixing compat117plus.PlayerEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.350] [main/INFO] [mixin/]: Mixing compat1194plus.PlayerEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.350] [main/INFO] [mixin/]: Mixing compat1201minus.EntityVehicleHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.352] [main/INFO] [mixin/]: Mixing compat1204minus.PlayerEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.352] [main/INFO] [mixin/]: Mixing PlayerEntityMixin from apoli.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.359] [main/INFO] [mixin/]: Mixing forge.PlayerMixin from apoli.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.359] [main/INFO] [mixin/]: Mixing NoCobwebSlowdownMixin from origins.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.360] [main/INFO] [mixin/]: Mixing WaterBreathingMixin$UpdateAir from origins.mixins.json into net.minecraft.world.entity.player.Player
+[1910月2025 10:29:52.507] [main/INFO] [mixin/]: Mixing reach.IForgePlayerMixin from pehkui.mixins.json into net.minecraftforge.common.extensions.IForgePlayer
+[1910月2025 10:29:52.519] [main/INFO] [mixin/]: Mixing LivingEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.519] [main/INFO] [mixin/]: Renaming synthetic method lambda$pehkui$tickMovement$minVelocity$0(I)Z to mdd72c2e$lambda$pehkui$tickMovement$minVelocity$0$0 in pehkui.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.555] [main/INFO] [mixin/]: Mixing compat117plus.LivingEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.557] [main/INFO] [mixin/]: Mixing compat1194plus.LivingEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.557] [main/INFO] [mixin/]: Mixing compat1204minus.LivingEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.558] [main/INFO] [mixin/]: Mixing MixinLivingEntity from caelus.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.558] [main/INFO] [mixin/]: Mixing LivingEntityMixin from apoli.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$preventApplyingFoodEffects$13(Lio/github/edwinmindcraft/apoli/api/power/configuration/ConfiguredPower;)Z to mdd72c2e$lambda$preventApplyingFoodEffects$13$1 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$callActionOnUseFinishBefore$12(Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$callActionOnUseFinishBefore$12$2 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$callActionOnUseDuringBefore$11(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$callActionOnUseDuringBefore$11$3 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$callActionOnUseStopBefore$10(Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$callActionOnUseStopBefore$10$4 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$modifyAttributeValue$9(Lnet/minecraft/world/entity/ai/attributes/Attribute;Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$modifyAttributeValue$9$5 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$sendPlayerDismountPacket$8(Lnet/minecraft/server/level/ServerPlayer;)Lnet/minecraft/server/level/ServerPlayer; to mdd72c2e$lambda$sendPlayerDismountPacket$8$6 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$modifyWalkableFluids$7(Lnet/minecraft/world/level/material/FluidState;Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$modifyWalkableFluids$7$7 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$addEquipmentPowers$6(Ljava/util/List;Lnet/minecraft/resources/ResourceLocation;Lio/github/edwinmindcraft/apoli/api/component/IPowerContainer;)V to mdd72c2e$lambda$addEquipmentPowers$6$8 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$addEquipmentPowers$5(Lio/github/edwinmindcraft/apoli/api/component/IPowerContainer;Lnet/minecraft/resources/ResourceLocation;Lio/github/apace100/apoli/util/StackPowerUtil$StackPower;)V to mdd72c2e$lambda$addEquipmentPowers$5$9 in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$removeEquipmentPowers$4(Ljava/util/List;Lnet/minecraft/resources/ResourceLocation;Lio/github/edwinmindcraft/apoli/api/component/IPowerContainer;)V to mdd72c2e$lambda$removeEquipmentPowers$4$a in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$removeEquipmentPowers$3(Lio/github/edwinmindcraft/apoli/api/component/IPowerContainer;Lnet/minecraft/resources/ResourceLocation;Lio/github/apace100/apoli/util/StackPowerUtil$StackPower;)V to mdd72c2e$lambda$removeEquipmentPowers$3$b in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$syncAttacker$2()Lnet/minecraft/world/entity/Entity; to mdd72c2e$lambda$syncAttacker$2$c in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$modifyStatusEffect$1(Lnet/minecraft/world/effect/MobEffect;Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$modifyStatusEffect$1$d in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.560] [main/INFO] [mixin/]: Renaming synthetic method lambda$modifyStatusEffect$0(Lnet/minecraft/world/effect/MobEffect;Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$modifyStatusEffect$0$e in apoli.mixins.json:LivingEntityMixin
+[1910月2025 10:29:52.575] [main/INFO] [mixin/]: Mixing LikeWaterMixin from origins.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.575] [main/INFO] [mixin/]: Mixing WaterBreathingMixin$CanBreatheInWater from origins.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.575] [main/INFO] [mixin/]: Mixing compat115plus.LivingEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.LivingEntity
+[1910月2025 10:29:52.914] [main/INFO] [mixin/]: Mixing compat116plus.AbstractBlockStateMixin from pehkui.mixins.json into net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase
+[1910月2025 10:29:52.914] [main/INFO] [mixin/]: Mixing AbstractBlockStateMixin from apoli.mixins.json into net.minecraft.world.level.block.state.BlockBehaviour$BlockStateBase
+[1910月2025 10:29:52.959] [main/INFO] [mixin/]: Mixing compat117plus.ServerWorldMixin from pehkui.mixins.json into net.minecraft.server.level.ServerLevel
+[1910月2025 10:29:52.978] [main/INFO] [mixin/]: Mixing client.compat116plus.ItemEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.item.ItemEntity
+[1910月2025 10:29:52.986] [main/INFO] [mixin/]: Mixing ItemEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.item.ItemEntity
+[1910月2025 10:29:53.037] [main/INFO] [mixin/]: Mixing reach.compat1204minus.compat116plus.ItemMixin from pehkui.mixins.json into net.minecraft.world.item.Item
+[1910月2025 10:29:53.037] [main/INFO] [mixin/]: Mixing ItemMixin from apoli.mixins.json into net.minecraft.world.item.Item
+[1910月2025 10:29:53.054] [main/INFO] [mixin/]: Mixing compat117plus.patchwork.compat.IForgeItemMixin from pehkui.mixins.json into net.minecraftforge.common.extensions.IForgeItem
+[1910月2025 10:29:53.470] [main/INFO] [mixin/]: Mixing PortalBlockMixin from pehkui.mixins.json into net.minecraft.world.level.block.NetherPortalBlock
+[1910月2025 10:29:53.677] [main/INFO] [mixin/]: Mixing PreEntityTickMixin from pehkui.mixins.json into net.minecraft.world.entity.item.FallingBlockEntity
+[1910月2025 10:29:53.729] [main/INFO] [mixin/]: Mixing reach.compat1204minus.compat1194plus.InventoryMixin from pehkui.mixins.json into net.minecraft.world.Container
+[1910月2025 10:29:53.930] [main/INFO] [mixin/]: Mixing PreEntityTickMixin from pehkui.mixins.json into net.minecraft.world.entity.item.PrimedTnt
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Mixing compat1204minus.ScreenHandlerMixin from pehkui.mixins.json into net.minecraft.world.inventory.AbstractContainerMenu
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Mixing reach.compat1204minus.ScreenHandlerMixin from pehkui.mixins.json into net.minecraft.world.inventory.AbstractContainerMenu
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Mixing forge.AbstractContainerMenuMixin from apoli.mixins.json into net.minecraft.world.inventory.AbstractContainerMenu
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$checkForSameTagsWithNewContextGrow$9(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$checkForSameTagsWithNewContextGrow$9$0 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$checkForSameTagsWithNewContextGrow$8(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$checkForSameTagsWithNewContextGrow$8$1 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$checkForSameTagsWithNewContextInsert$7(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$checkForSameTagsWithNewContextInsert$7$2 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$checkForSameTagsWithNewContextInsert$6(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$checkForSameTagsWithNewContextInsert$6$3 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$handleGrindstoneLateActionsSwap$5(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$handleGrindstoneLateActionsSwap$5$4 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$handleGrindstoneLateActionsSwap$4(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$handleGrindstoneLateActionsSwap$4$5 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$handleGrindstoneLateActionsGrow$3(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$handleGrindstoneLateActionsGrow$3$6 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$handleGrindstoneLateActionsGrow$2(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$handleGrindstoneLateActionsGrow$2$7 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$handleGrindstoneLateActionsSet$1(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$handleGrindstoneLateActionsSet$1$8 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.042] [main/INFO] [mixin/]: Renaming synthetic method lambda$handleGrindstoneLateActionsSet$0(Lnet/minecraft/world/inventory/Slot;)Z to mdd72c2e$lambda$handleGrindstoneLateActionsSet$0$9 in apoli.mixins.json:forge.AbstractContainerMenuMixin
+[1910月2025 10:29:54.138] [main/INFO] [mixin/]: Mixing CraftingScreenHandlerMixin from apoli.mixins.json into net.minecraft.world.inventory.CraftingMenu
+[1910月2025 10:29:54.138] [main/INFO] [mixin/]: Renaming synthetic method lambda$allowUsingViaPower$0(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Ljava/lang/Boolean; to mdd72c2e$lambda$allowUsingViaPower$0$0 in apoli.mixins.json:CraftingScreenHandlerMixin
+[1910月2025 10:29:54.228] [main/INFO] [mixin/]: Mixing PersistentProjectileEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.AbstractArrow
+[1910月2025 10:29:54.228] [main/INFO] [mixin/]: Mixing compat116plus.PersistentProjectileEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.AbstractArrow
+[1910月2025 10:29:54.228] [main/INFO] [mixin/]: Mixing compat1202minus.PersistentProjectileEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.AbstractArrow
+[1910月2025 10:29:54.228] [main/INFO] [mixin/]: Mixing compat1204minus.PersistentProjectileEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.AbstractArrow
+[1910月2025 10:29:54.277] [main/INFO] [mixin/]: Mixing compat116plus.ProjectileEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.Projectile
+[1910月2025 10:29:54.322] [main/INFO] [mixin/]: Mixing MobEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.Mob
+[1910月2025 10:29:54.322] [main/INFO] [mixin/]: Mixing compat116plus.MobEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.Mob
+[1910月2025 10:29:54.363] [main/INFO] [mixin/]: Mixing compat1201minus.EntityVehicleHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Silverfish
+[1910月2025 10:29:54.427] [main/INFO] [mixin/]: Mixing ItemStackMixin from apoli.mixins.json into net.minecraft.world.item.ItemStack
+[1910月2025 10:29:54.427] [main/INFO] [mixin/]: Renaming synthetic method lambda$callActionOnUseInstantAfter$2(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$callActionOnUseInstantAfter$2$0 in apoli.mixins.json:ItemStackMixin
+[1910月2025 10:29:54.427] [main/INFO] [mixin/]: Renaming synthetic method lambda$copyNewParams$1(Lio/github/apace100/apoli/access/EntityLinkedItemStack;)V to mdd72c2e$lambda$copyNewParams$1$1 in apoli.mixins.json:ItemStackMixin
+[1910月2025 10:29:54.427] [main/INFO] [mixin/]: Renaming synthetic method lambda$callActionOnUseInstantBefore$0(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/core/Holder;)Z to mdd72c2e$lambda$callActionOnUseInstantBefore$0$2 in apoli.mixins.json:ItemStackMixin
+[1910月2025 10:29:54.518] [main/INFO] [mixin/]: Mixing WitherEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.boss.wither.WitherBoss
+[1910月2025 10:29:54.520] [main/INFO] [mixin/]: Mixing compat1204minus.WitherEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.boss.wither.WitherBoss
+[1910月2025 10:29:54.540] [main/INFO] [mixin/]: Mixing compat1204minus.compat116plus.ForgingScreenHandlerMixin from pehkui.mixins.json into net.minecraft.world.inventory.ItemCombinerMenu
+[1910月2025 10:29:54.546] [main/INFO] [mixin/]: Mixing reach.compat1204minus.compat116plus.ForgingScreenHandlerMixin from pehkui.mixins.json into net.minecraft.world.inventory.ItemCombinerMenu
+[1910月2025 10:29:54.650] [main/INFO] [mixin/]: Mixing compat116plus.AnimalEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.Animal
+[1910月2025 10:29:54.650] [main/INFO] [mixin/]: Mixing compat1201minus.EntityVehicleHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.Animal
+[1910月2025 10:29:54.684] [main/INFO] [mixin/]: Mixing compat1201minus.compat120plus.SnifferEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.sniffer.Sniffer
+[1910月2025 10:29:54.696] [main/INFO] [mixin/]: Mixing ConduitOnLandMixin from origins.mixins.json into net.minecraft.world.level.block.entity.ConduitBlockEntity
+[1910月2025 10:29:54.825] [main/INFO] [mixin/]: Mixing GrindstoneScreenHandlerMixin from apoli.mixins.json into net.minecraft.world.inventory.GrindstoneMenu
+[1910月2025 10:29:54.828] [main/INFO] [mixin/]: Renaming synthetic method lambda$cachePlayer$0(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/core/BlockPos; to mdd72c2e$lambda$cachePlayer$0$0 in apoli.mixins.json:GrindstoneScreenHandlerMixin
+[1910月2025 10:29:55.063] [main/INFO] [mixin/]: Mixing BlockItemMixin from apoli.mixins.json into net.minecraft.world.item.BlockItem
+[1910月2025 10:29:55.123] [main/INFO] [mixin/]: Mixing compat116plus.SpawnEggItemMixin from pehkui.mixins.json into net.minecraft.world.item.SpawnEggItem
+[1910月2025 10:29:55.123] [main/INFO] [mixin/]: Renaming synthetic method lambda$pehkui$spawnBaby$0(Lnet/minecraft/world/entity/Mob;Lnet/minecraft/world/entity/Mob;)V to mdd72c2e$lambda$pehkui$spawnBaby$0$0 in pehkui.mixins.json:compat116plus.SpawnEggItemMixin
+[1910月2025 10:29:55.150] [main/INFO] [mixin/]: Mixing compat1204minus.CrossbowItemMixin from pehkui.mixins.json into net.minecraft.world.item.CrossbowItem
+[1910月2025 10:29:55.163] [main/INFO] [mixin/]: Mixing compat1202minus.compat120plus.BrushItemMixin from pehkui.mixins.json into net.minecraft.world.item.BrushItem
+[1910月2025 10:29:55.215] [main/INFO] [mixin/]: Mixing PreEntityTickMixin from pehkui.mixins.json into net.minecraft.world.entity.vehicle.AbstractMinecart
+[1910月2025 10:29:55.248] [main/INFO] [mixin/]: Mixing AbstractDecorationEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.decoration.HangingEntity
+[1910月2025 10:29:55.251] [main/INFO] [mixin/]: Mixing PreEntityTickMixin from pehkui.mixins.json into net.minecraft.world.entity.decoration.HangingEntity
+[1910月2025 10:29:55.467] [main/INFO] [mixin/]: Mixing compat116plus.NbtCompoundMixin from pehkui.mixins.json into net.minecraft.nbt.CompoundTag
+[1910月2025 10:29:55.810] [main/INFO] [mixin/]: Mixing AreaEffectCloudEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.AreaEffectCloud
+[1910月2025 10:29:55.825] [main/INFO] [mixin/]: Mixing ArmorStandEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.decoration.ArmorStand
+[1910月2025 10:29:55.825] [main/INFO] [mixin/]: Mixing compat1201minus.EntityVehicleHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.decoration.ArmorStand
+[1910月2025 10:29:55.825] [main/INFO] [mixin/]: Mixing compat1204minus.ArmorStandEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.decoration.ArmorStand
+[1910月2025 10:29:55.850] [main/INFO] [mixin/]: Mixing compat1201minus.compat117plus.AxolotlEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.axolotl.Axolotl
+[1910月2025 10:29:55.864] [main/INFO] [mixin/]: Mixing ExperienceOrbEntityMixin from apoli.mixins.json into net.minecraft.world.entity.ExperienceOrb
+[1910月2025 10:29:55.879] [main/INFO] [mixin/]: Mixing TrackTargetGoalMixin from pehkui.mixins.json into net.minecraft.world.entity.ai.goal.target.TargetGoal
+[1910月2025 10:29:55.896] [main/INFO] [mixin/]: Mixing BlazeEntityShootFireballGoalMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Blaze$BlazeAttackGoal
+[1910月2025 10:29:55.908] [main/INFO] [mixin/]: Mixing BoatEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.vehicle.Boat
+[1910月2025 10:29:55.908] [main/INFO] [mixin/]: Mixing compat1201minus.EntityMountedHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.vehicle.Boat
+[1910月2025 10:29:55.908] [main/INFO] [mixin/]: Mixing compat1201minus.compat120plus.BoatEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.vehicle.Boat
+[1910月2025 10:29:55.908] [main/INFO] [mixin/]: Mixing compat1204minus.BoatEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.vehicle.Boat
+[1910月2025 10:29:55.951] [main/INFO] [mixin/]: Mixing compat1201minus.compat1193plus.CamelEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.camel.Camel
+[1910月2025 10:29:55.951] [main/INFO] [mixin/]: Mixing compat1201minus.compat120plus.CamelEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.camel.Camel
+[1910月2025 10:29:55.951] [main/INFO] [mixin/]: Mixing compat1204minus.compat1193plus.CamelEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.camel.Camel
+[1910月2025 10:29:55.974] [main/INFO] [mixin/]: Mixing compat1201minus.compat120plus.AbstractHorseEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.horse.AbstractHorse
+[1910月2025 10:29:56.007] [main/INFO] [mixin/]: Mixing compat1201minus.EntityVehicleHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.AbstractSkeleton
+[1910月2025 10:29:56.016] [main/INFO] [mixin/]: Mixing compat119plus.ChestBoatEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.vehicle.ChestBoat
+[1910月2025 10:29:56.016] [main/INFO] [mixin/]: Mixing reach.compat1204minus.compat119plus.ChestBoatEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.vehicle.ChestBoat
+[1910月2025 10:29:56.033] [main/INFO] [mixin/]: Mixing reach.compat1204minus.compat119plus.StorageMinecartEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.vehicle.AbstractMinecartContainer
+[1910月2025 10:29:56.047] [main/INFO] [mixin/]: Mixing compat1201minus.compat120plus.ChickenEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.Chicken
+[1910月2025 10:29:56.062] [main/INFO] [mixin/]: Mixing ScareCreepersMixin from origins.mixins.json into net.minecraft.world.entity.monster.Creeper
+[1910月2025 10:29:56.062] [main/INFO] [mixin/]: Renaming synthetic method lambda$redirectTargetGoal$1(Lnet/minecraft/world/entity/LivingEntity;)Z to mdd72c2e$lambda$redirectTargetGoal$1$0 in origins.mixins.json:ScareCreepersMixin
+[1910月2025 10:29:56.062] [main/INFO] [mixin/]: Renaming synthetic method lambda$addGoals$0(Lnet/minecraft/world/entity/LivingEntity;)Z to mdd72c2e$lambda$addGoals$0$1 in origins.mixins.json:ScareCreepersMixin
+[1910月2025 10:29:56.080] [main/INFO] [mixin/]: Mixing compat1201minus.AbstractDonkeyEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.horse.AbstractChestedHorse
+[1910月2025 10:29:56.095] [main/INFO] [mixin/]: Mixing compat116plus.DragonFireballEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.DragonFireball
+[1910月2025 10:29:56.105] [main/INFO] [mixin/]: Mixing ExplosiveProjectileEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.AbstractHurtingProjectile
+[1910月2025 10:29:56.129] [main/INFO] [mixin/]: Mixing compat1201minus.EntityVehicleHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Zombie
+[1910月2025 10:29:56.142] [main/INFO] [mixin/]: Mixing compat116plus.EggEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.ThrownEgg
+[1910月2025 10:29:56.162] [main/INFO] [mixin/]: Mixing ThrownEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.ThrowableProjectile
+[1910月2025 10:29:56.162] [main/INFO] [mixin/]: Mixing compat1204minus.ThrownEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.ThrowableProjectile
+[1910月2025 10:29:56.184] [main/INFO] [mixin/]: Mixing PreEntityTickMixin from pehkui.mixins.json into net.minecraft.world.entity.boss.enderdragon.EndCrystal
+[1910月2025 10:29:56.184] [main/INFO] [mixin/]: Mixing compat1202minus.compat1193plus.EndCrystalEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.boss.enderdragon.EndCrystal
+[1910月2025 10:29:56.203] [main/INFO] [mixin/]: Mixing EnderDragonEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.boss.enderdragon.EnderDragon
+[1910月2025 10:29:56.221] [main/INFO] [mixin/]: Mixing compat116plus.EnderPearlEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.ThrownEnderpearl
+[1910月2025 10:29:56.237] [main/INFO] [mixin/]: Mixing compat1201minus.EntityVehicleHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Endermite
+[1910月2025 10:29:56.241] [main/INFO] [mixin/]: Mixing compat1201minus.EntityVehicleHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.PatrollingMonster
+[1910月2025 10:29:56.254] [main/INFO] [mixin/]: Mixing compat116plus.SummonVexGoalMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Evoker$EvokerSummonSpellGoal
+[1910月2025 10:29:56.267] [main/INFO] [mixin/]: Mixing EvokerFangsEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.EvokerFangs
+[1910月2025 10:29:56.283] [main/INFO] [mixin/]: Mixing compat116plus.FoxEntityMateGoalMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.Fox$FoxBreedGoal
+[1910月2025 10:29:56.301] [main/INFO] [mixin/]: Mixing GhastEntityShootFireballGoalMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Ghast$GhastShootFireballGoal
+[1910月2025 10:29:56.315] [main/INFO] [mixin/]: Mixing ItemFrameEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.decoration.ItemFrame
+[1910月2025 10:29:56.332] [main/INFO] [mixin/]: Mixing compat1201minus.compat116plus.HoglinEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.hoglin.Hoglin
+[1910月2025 10:29:56.349] [main/INFO] [mixin/]: Mixing compat1201minus.compat116plus.ZoglinEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Zoglin
+[1910月2025 10:29:56.365] [main/INFO] [mixin/]: Mixing compat1193plus.FireballEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.LargeFireball
+[1910月2025 10:29:56.382] [main/INFO] [mixin/]: Mixing compat1201minus.compat120plus.LlamaEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.horse.Llama
+[1910月2025 10:29:56.392] [main/INFO] [mixin/]: Mixing LlamaSpitEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.LlamaSpit
+[1910月2025 10:29:56.402] [main/INFO] [mixin/]: Mixing compat117plus.SlimeEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Slime
+[1910月2025 10:29:56.402] [main/INFO] [mixin/]: Mixing compat1204minus.compat117plus.SlimeEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Slime
+[1910月2025 10:29:56.435] [main/INFO] [mixin/]: Mixing compat116plus.PigEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.Pig
+[1910月2025 10:29:56.458] [main/INFO] [mixin/]: Mixing PotionEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.ThrownPotion
+[1910月2025 10:29:56.458] [main/INFO] [mixin/]: Mixing compat1204minus.PotionEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.ThrownPotion
+[1910月2025 10:29:56.506] [main/INFO] [mixin/]: Mixing compat1201minus.EntityMountedHeightOffsetMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Ravager
+[1910月2025 10:29:56.513] [main/INFO] [mixin/]: Mixing compat117plus.ShulkerEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Shulker
+[1910月2025 10:29:56.513] [main/INFO] [mixin/]: Mixing compat1204minus.ShulkerEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.monster.Shulker
+[1910月2025 10:29:56.531] [main/INFO] [mixin/]: Mixing compat1201minus.SkeletonHorseEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.animal.horse.SkeletonHorse
+[1910月2025 10:29:56.593] [main/INFO] [mixin/]: Mixing ServerPlayerEntityMixin from pehkui.mixins.json into net.minecraft.server.level.ServerPlayer
+[1910月2025 10:29:56.651] [main/INFO] [mixin/]: Mixing compat116plus.VillagerEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.npc.Villager
+[1910月2025 10:29:56.680] [main/INFO] [mixin/]: Mixing compat116plus.FishingBobberEntityMixin from pehkui.mixins.json into net.minecraft.world.entity.projectile.FishingHook
+[1910月2025 10:29:56.698] [main/INFO] [mixin/]: Mixing StatusEffectInstanceMixin from apoli.mixins.json into net.minecraft.world.effect.MobEffectInstance
+[1910月2025 10:29:56.728] [main/INFO] [mixin/]: Mixing ServerPlayNetworkHandlerMixin from pehkui.mixins.json into net.minecraft.server.network.ServerGamePacketListenerImpl
+[1910月2025 10:29:56.728] [main/INFO] [mixin/]: Mixing compat1204minus.ServerPlayNetworkHandlerMixin from pehkui.mixins.json into net.minecraft.server.network.ServerGamePacketListenerImpl
+[1910月2025 10:29:56.728] [main/INFO] [mixin/]: Mixing reach.compat1204minus.ServerPlayNetworkHandlerMixin from pehkui.mixins.json into net.minecraft.server.network.ServerGamePacketListenerImpl
+[1910月2025 10:29:56.728] [main/INFO] [mixin/]: Mixing reach.compat1204minus.compat119plus.ServerPlayNetworkHandlerMixin from pehkui.mixins.json into net.minecraft.server.network.ServerGamePacketListenerImpl
+[1910月2025 10:29:56.728] [main/INFO] [mixin/]: Mixing ServerPlayNetworkHandlerMixin from apoli.mixins.json into net.minecraft.server.network.ServerGamePacketListenerImpl
+[1910月2025 10:29:56.791] [main/INFO] [mixin/]: Mixing EntitySelectorOptionsInvoker from pehkui.mixins.json into net.minecraft.commands.arguments.selector.options.EntitySelectorOptions
+[1910月2025 10:29:56.791] [main/INFO] [mixin/]: Renaming @Invoker method callPutOption(Ljava/lang/String;Lnet/minecraft/commands/arguments/selector/options/EntitySelectorOptions$Modifier;Ljava/util/function/Predicate;Lnet/minecraft/network/chat/Component;)V to callPutOption_$md$d72c2e$0 in pehkui.mixins.json:EntitySelectorOptionsInvoker
+[1910月2025 10:29:56.808] [main/INFO] [mixin/]: Mixing EntitySelectorOptionsMixin from pehkui.mixins.json into net.minecraft.commands.arguments.selector.options.EntitySelectorOptions
+[1910月2025 10:29:56.839] [main/INFO] [mixin/]: Mixing EntitySelectorReaderMixin from pehkui.mixins.json into net.minecraft.commands.arguments.selector.EntitySelectorParser
+[1910月2025 10:29:56.839] [main/INFO] [mixin/]: Renaming synthetic method lambda$pehkui$buildPredicate$1(Lvirtuoel/pehkui/api/ScaleType;Lnet/minecraft/world/entity/Entity;)Z to mdd72c2e$lambda$pehkui$buildPredicate$1$0 in pehkui.mixins.json:EntitySelectorReaderMixin
+[1910月2025 10:29:56.839] [main/INFO] [mixin/]: Renaming synthetic method lambda$pehkui$buildPredicate$0(Lvirtuoel/pehkui/api/ScaleType;Lnet/minecraft/world/entity/Entity;)Z to mdd72c2e$lambda$pehkui$buildPredicate$0$1 in pehkui.mixins.json:EntitySelectorReaderMixin
+[1910月2025 10:29:56.870] [main/INFO] [mixin/]: Mixing compat1204minus.compat117plus.ViewerCountManagerMixin from pehkui.mixins.json into net.minecraft.world.level.block.entity.ContainerOpenersCounter
+[1910月2025 10:29:56.941] [main/INFO] [mixin/]: Mixing forge.ResultSlotAccessor from apoli.mixins.json into net.minecraft.world.inventory.ResultSlot
+[1910月2025 10:29:56.953] [main/INFO] [mixin/]: Mixing forge.GrindstoneMenuResultSlotAccessor from apoli.mixins.json into net.minecraft.world.inventory.GrindstoneMenu$4
+[1910月2025 10:29:57.009] [main/INFO] [mixin/]: Mixing OperationArgumentTypeAccessor from pehkui.mixins.json into net.minecraft.commands.arguments.OperationArgument
+[1910月2025 10:29:57.009] [main/INFO] [mixin/]: Renaming @Accessor method getInvalidOperationException()Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType; to getInvalidOperationException_$md$d72c2e$0 in pehkui.mixins.json:OperationArgumentTypeAccessor
+[1910月2025 10:29:57.016] [main/INFO] [mixin/]: Renaming @Accessor method getDivisionZeroException()Lcom/mojang/brigadier/exceptions/SimpleCommandExceptionType; to getDivisionZeroException_$md$d72c2e$1 in pehkui.mixins.json:OperationArgumentTypeAccessor
+[1910月2025 10:29:57.032] [main/INFO] [mixin/]: Mixing ItemSlotArgumentTypeAccessor from apoli.mixins.json into net.minecraft.commands.arguments.SlotArgument
+[1910月2025 10:29:57.090] [main/INFO] [mixin/]: Mixing LootContextMixin from apoli.mixins.json into net.minecraft.world.level.storage.loot.LootContext
+[1910月2025 10:29:57.377] [main/INFO] [mixin/]: Mixing BiomeMixin from apoli.mixins.json into net.minecraft.world.level.biome.Biome
+[1910月2025 10:29:57.759] [modloading-worker-0/INFO] [mixin/]: Mixing forge.CaelusMixin from apoli.mixins.json into top.theillusivec4.caelus.common.CaelusApiImpl
+[1910月2025 10:29:57.769] [modloading-worker-0/INFO] [mixin/]: Mixing MixinCaelusApi from caelus.mixins.json into top.theillusivec4.caelus.api.CaelusApi
+[1910月2025 10:29:57.769] [modloading-worker-0/INFO] [io.github.apace100.origins.Origins/]: Origins 1.20.1-1.10.0.9 is initializing. Have fun!
+[1910月2025 10:29:57.775] [modloading-worker-0/INFO] [mixin/]: Mixing pehkui.compat.ScaleTypeMixin from pehkui.mixins.json into virtuoel.pehkui.api.ScaleType
+[1910月2025 10:29:57.783] [modloading-worker-0/INFO] [Calio/]: Calio 1.20.1-1.11.0.5 initializing...
+[1910月2025 10:29:57.822] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.1, for MC 1.20.1 with MCP 20230612.114412
+[1910月2025 10:29:57.825] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.1 Initialized
+[1910月2025 10:29:57.866] [modloading-worker-0/INFO] [mixin/]: Mixing client.ClientPlayerEntityMixin from pehkui.mixins.json into net.minecraft.client.player.LocalPlayer
+[1910月2025 10:29:57.869] [modloading-worker-0/INFO] [mixin/]: Mixing client.compat1182plus.ClientPlayerEntityMixin from pehkui.mixins.json into net.minecraft.client.player.LocalPlayer
+[1910月2025 10:29:57.869] [modloading-worker-0/INFO] [mixin/]: Mixing MixinLocalPlayer from caelus.mixins.json into net.minecraft.client.player.LocalPlayer
+[1910月2025 10:29:57.870] [modloading-worker-0/INFO] [mixin/]: Mixing ClientPlayerEntityMixin from apoli.mixins.json into net.minecraft.client.player.LocalPlayer
+[1910月2025 10:29:57.872] [modloading-worker-0/INFO] [mixin/]: Mixing WaterVisibilityMixin from origins.mixins.json into net.minecraft.client.player.LocalPlayer
+[1910月2025 10:29:58.019] [modloading-worker-0/INFO] [mixin/]: Mixing compat1201minus.PlayerManagerMixin from pehkui.mixins.json into net.minecraft.server.players.PlayerList
+[1910月2025 10:29:58.068] [modloading-worker-0/INFO] [mixin/]: Mixing CooldownPowerFactoryMixin from newnew_origins.mixins.json into io.github.edwinmindcraft.apoli.api.power.factory.power.CooldownPowerFactory
+[1910月2025 10:29:58.145] [modloading-worker-0/INFO] [mixin/]: Mixing forge.ModifyPlayerSpawnPowerMixin from origins.mixins.json into io.github.edwinmindcraft.apoli.common.power.ModifyPlayerSpawnPower
+[1910月2025 10:29:58.216] [modloading-worker-0/INFO] [mixin/]: Mixing forge.EntityAttributeInstanceMixin from apoli.mixins.json into net.minecraft.world.entity.ai.attributes.AttributeInstance
+[1910月2025 10:29:58.229] [modloading-worker-0/INFO] [mixin/]: Mixing DamageSourceMixin from apoli.mixins.json into net.minecraft.world.damagesource.DamageSource
+[1910月2025 10:29:58.249] [modloading-worker-0/INFO] [mixin/]: Mixing compat116plus.TargetPredicateMixin from pehkui.mixins.json into net.minecraft.world.entity.ai.targeting.TargetingConditions
+[1910月2025 10:29:58.382] [modloading-worker-0/INFO] [mixin/]: Mixing ElytraFeatureRendererMixin from apoli.mixins.json into net.minecraft.client.renderer.entity.layers.ElytraLayer
+[1910月2025 10:29:58.405] [modloading-worker-0/INFO] [mixin/]: Mixing MixinCapeLayer from caelus.mixins.json into net.minecraft.client.renderer.entity.layers.CapeLayer
+[1910月2025 10:29:58.405] [modloading-worker-0/INFO] [mixin/]: Mixing CapeFeatureRendererMixin from apoli.mixins.json into net.minecraft.client.renderer.entity.layers.CapeLayer
+[1910月2025 10:29:58.426] [modloading-worker-0/INFO] [io.github.apace100.apoli.Apoli/]: Apoli 1.20.1-2.9.0.8 has initialized. Ready to power up your game!
+[1910月2025 10:29:58.457] [modloading-worker-0/INFO] [mixin/]: Mixing client.CameraMixin from pehkui.mixins.json into net.minecraft.client.Camera
+[1910月2025 10:29:59.037] [main/INFO] [mixin/]: Mixing MinecraftClientMixin from apoli.mixins.json into net.minecraft.client.Minecraft
+[1910月2025 10:29:59.057] [main/INFO] [mixin/]: Mixing client.compat120plus.InGameHudMixin from pehkui.mixins.json into net.minecraft.client.gui.Gui
+[1910月2025 10:29:59.057] [main/INFO] [mixin/]: Mixing InGameHudMixin from apoli.mixins.json into net.minecraft.client.gui.Gui
+[1910月2025 10:29:59.118] [main/INFO] [mixin/]: Mixing forge.ForgeGuiMixin from apoli.mixins.json into net.minecraftforge.client.gui.overlay.ForgeGui
+[1910月2025 10:29:59.148] [main/INFO] [mixin/]: Mixing client.ClientWorldMixin from pehkui.mixins.json into net.minecraft.client.multiplayer.ClientLevel
+[1910月2025 10:29:59.159] [main/INFO] [mixin/]: Mixing forge.ConfirmScreenMixin from apoli.mixins.json into net.minecraft.client.gui.screens.ConfirmScreen
+[1910月2025 10:29:59.174] [main/INFO] [mixin/]: Mixing forge.DeathScreenMixin from apoli.mixins.json into net.minecraft.client.gui.screens.DeathScreen
+[1910月2025 10:29:59.182] [main/INFO] [mixin/]: Mixing client.compat1201minus.compat120plus.InventoryScreenMixin from pehkui.mixins.json into net.minecraft.client.gui.screens.inventory.InventoryScreen
+[1910月2025 10:29:59.190] [main/INFO] [mixin/]: Renaming synthetic method lambda$pehkui$drawEntity$head$0(Lvirtuoel/pehkui/api/ScaleType;)Lvirtuoel/pehkui/api/ScaleData; to mdd72c2e$lambda$pehkui$drawEntity$head$0$0 in pehkui.mixins.json:client.compat1201minus.compat120plus.InventoryScreenMixin
+[1910月2025 10:29:59.214] [main/INFO] [Calio/]: CDRM Initialized with 16 registries
+[1910月2025 10:29:59.230] [main/INFO] [mixin/]: Mixing forge.ForgeHooksMixin from apoli.mixins.json into net.minecraftforge.common.ForgeHooks
+[1910月2025 10:29:59.230] [main/INFO] [mixin/]: Renaming synthetic method lambda$ladder$0(Lnet/minecraft/core/BlockPos;)V to mdd72c2e$lambda$ladder$0$0 in apoli.mixins.json:forge.ForgeHooksMixin
+[1910月2025 10:29:59.288] [main/INFO] [mixin/]: Mixing forge.InventoryMenuMixin from apoli.mixins.json into net.minecraft.world.inventory.InventoryMenu
+[1910月2025 10:29:59.386] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/godji/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.1_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.1_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[1910月2025 10:29:59.386] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/godji/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.1_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.4.1_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[1910月2025 10:29:59.408] [Worker-Main-1/INFO] [mixin/]: Mixing compat1201minus.compat117plus.ServerChunkManagerMixin from pehkui.mixins.json into net.minecraft.server.level.ServerChunkCache
+[1910月2025 10:29:59.486] [Worker-Main-1/INFO] [mixin/]: Mixing BiomeBuilderMixin from apoli.mixins.json into net.minecraft.world.level.biome.Biome$BiomeBuilder
+[1910月2025 10:29:59.633] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: NewNewDataProvidernewnew_origins
+[1910月2025 10:29:59.738] [main/INFO] [net.minecraft.data.DataGenerator/]: NewNewDataProvidernewnew_origins finished after 106 ms
+[1910月2025 10:29:59.738] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 107 ms
+[1910月2025 10:29:59.752] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 13, old count: 13, new count: 12, removed stale: 2, written: 1
