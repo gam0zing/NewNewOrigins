@@ -18,6 +18,12 @@ public class NewNewOrigins {
 
         ModAttributes.register(eventBus);
         ModCapabilities.register(eventBus);
+
+        ModEntities.register(eventBus);
+    }
+
+    public static String fullId(String name) {
+        return MODID + ":" + name;
     }
 
     /// 获取全称路径

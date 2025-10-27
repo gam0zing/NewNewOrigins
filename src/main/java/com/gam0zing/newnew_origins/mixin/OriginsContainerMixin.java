@@ -68,15 +68,14 @@ public class OriginsContainerMixin {
         Optional<Holder.Reference<Origin>> oldOriginHolder = OriginsAPI.getOriginsRegistry().getHolder(oldOrigin);
         boolean isOldExist = oldOriginHolder.isPresent() && oldOriginHolder.get().isBound();
 
-
         //进化检查
         AtomicInteger isUpgrading = new AtomicInteger(0);
         if (isOldExist) {
-            oldOriginHolder.get().value().getUpgrades().forEach(originUpgrade -> {
-                if (originUpgrade.origin().unwrapKey().isEmpty()) return;
-                if (newOriginHolder.get().unwrapKey().isEmpty()) return;
+            for (var originUpgrade : oldOriginHolder.get().value().getUpgrades()) {
+                if (originUpgrade.origin().unwrapKey().isEmpty()) continue;
+                if (newOriginHolder.get().unwrapKey().isEmpty()) continue;
                 if (originUpgrade.origin().unwrapKey().get().location().equals(newOriginHolder.get().unwrapKey().get().location())) isUpgrading.getAndIncrement();
-            });
+            }
         }
         boolean flag = isUpgrading.get() > 0;
 

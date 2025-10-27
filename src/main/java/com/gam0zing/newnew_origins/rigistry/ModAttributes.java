@@ -28,6 +28,8 @@ public class ModAttributes {
 
     @SubscribeEvent
     public static void setAttributes(final EntityAttributeModificationEvent event) {
-        ATTRIBUTES.getEntries().forEach(attribute -> event.add(EntityType.PLAYER, attribute.get()));
+        for (var attribute : ATTRIBUTES.getEntries()) {
+            event.add(EntityType.PLAYER, attribute.get());
+        }
     }
 }

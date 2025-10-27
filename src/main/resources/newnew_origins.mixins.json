@@ -13,6 +13,7 @@
   },
   "mixins": [
     "CooldownPowerFactoryMixin",
+    "LivingEntityMixin",
     "OriginsContainerMixin"
   ]
 }

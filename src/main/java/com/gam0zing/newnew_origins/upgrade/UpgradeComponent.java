@@ -7,6 +7,7 @@ import io.github.edwinmindcraft.origins.api.OriginsAPI;
 import io.github.edwinmindcraft.origins.api.capabilities.IOriginContainer;
 import io.github.edwinmindcraft.origins.api.origin.Origin;
 import io.github.edwinmindcraft.origins.api.origin.OriginLayer;
+import io.github.edwinmindcraft.origins.api.origin.OriginUpgrade;
 import io.github.edwinmindcraft.origins.api.registry.OriginsDynamicRegistries;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementProgress;
@@ -167,7 +168,9 @@ public class UpgradeComponent implements IUpgradeComponent, ICapabilitySerializa
         if (origin == null) return;
         Set<Advancement> advancements = new HashSet<>();
         getAllUpgradeAdvancements(origin, advancements, new HashSet<>());
-        advancements.forEach(advancement -> revokeAdvancement((ServerPlayer) this.player, advancement));
+        for (Advancement advancement : advancements) {
+            revokeAdvancement((ServerPlayer) this.player, advancement);
+        }
         NewNewOrigins.LOGGER.debug("Capability：重置进度");
     }
 
@@ -177,21 +180,20 @@ public class UpgradeComponent implements IUpgradeComponent, ICapabilitySerializa
     private void getAllUpgradeAdvancements(@NotNull Origin origin, Set<Advancement> output, Set<ResourceKey<Origin>> lastStep) {
         if (this.player.getServer() == null) return;
 
-        origin.getUpgrades().forEach(upgrade -> {
-            //先查看是不是有效进化，一般不可能出现这类情况，这一步仅用于规避编译器警告
-            if (upgrade.origin().unwrapKey().isEmpty()) return;
-            if (!upgrade.origin().isBound()) return;
+        for (OriginUpgrade upgrade : origin.getUpgrades()) {//先查看是不是有效进化，一般不可能出现这类情况，这一步仅用于规避编译器警告
+            if (upgrade.origin().unwrapKey().isEmpty()) continue;
+            if (!upgrade.origin().isBound()) continue;
             //记录当前进化的成就
             Advancement advancement = player.getServer().getAdvancements().getAdvancement(upgrade.advancement());
             if (advancement != null) output.add(advancement);
             //记录进化起源，进行循环引用检查，如果构成循环引用，则将当前分支的递归中断
             ResourceKey<Origin> resourceKey = upgrade.origin().unwrapKey().get();
-            if (lastStep.contains(resourceKey)) return;
+            if (lastStep.contains(resourceKey)) continue;
             //如果不构成循环引用，则记录起源，并继续进入子分支
             Set<ResourceKey<Origin>> thisStep = new HashSet<>(lastStep);
             thisStep.add(resourceKey);
             getAllUpgradeAdvancements(upgrade.origin().get(), output, thisStep);
-        });
+        }
     }
 
     /// 撤销传入进度的所有条件
