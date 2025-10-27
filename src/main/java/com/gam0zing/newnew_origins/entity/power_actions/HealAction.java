@@ -20,6 +20,8 @@ import org.jetbrains.annotations.NotNull;
 public class HealAction extends AbstractAction {
     public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, "heal_action");
 
+    public ActionCategory category = ActionCategory.FRIENDLY;
+
     public float heal;
 
     public HealAction(float heal) {

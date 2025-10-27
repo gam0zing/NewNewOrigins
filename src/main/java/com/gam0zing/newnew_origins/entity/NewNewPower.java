@@ -35,12 +35,12 @@ public class NewNewPower extends Entity {
     protected boolean enabledEntityCooldown = false;
     /// 单位为tick
     protected int interval = 5;
+    private int intervalTimer = 0;
     /// 单位为interval
     protected int entityCooldown = 1;
     protected List<AbstractAction> actions = new ArrayList<>();
     protected AbstractTargeter targeter;
 
-    protected int intervalTimer = 0;
     protected Map<Entity, Integer> entityCooldowns = new HashMap<>();
     protected Set<Entity> targets = new HashSet<>();
 
@@ -58,6 +58,55 @@ public class NewNewPower extends Entity {
     public NewNewPower(@NotNull Entity entity, @NotNull AbstractTargeter targeter) {
         this(entity.level(), entity.getX() + DEFAULT_X, entity.getY() + DEFAULT_Y, entity.getZ() + DEFAULT_Z, targeter);
         this.setOwner(entity);
+    }
+
+    public @Nullable Entity getOwner() {
+        if (this.owner == null && this.ownerUUID != null && this.level() instanceof ServerLevel) {
+            Entity entity = ((ServerLevel)this.level()).getEntity(this.ownerUUID);
+            if (entity instanceof LivingEntity living) {
+                this.owner = living;
+            }
+        }
+        return this.owner;
+    }
+    public void setOwner(@Nullable Entity pOwner) {
+        this.owner = pOwner;
+        this.ownerUUID = pOwner == null ? null : pOwner.getUUID();
+    }
+
+    public boolean getEnabled() {
+        return this.enabled;
+    }
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean getIsSmart() {
+        return this.isSmart;
+    }
+    public void setIsSmart(boolean isSmart) {
+        this.isSmart = isSmart;
+    }
+
+    public boolean getEnabledEntityCooldown() {
+        return this.enabledEntityCooldown;
+    }
+    public void setEnabledEntityCooldown(boolean enabledEntityCooldown) {
+        this.enabledEntityCooldown = enabledEntityCooldown;
+    }
+
+    public int getInterval() {
+        return this.interval;
+    }
+    public void setInterval(int interval) {
+        this.interval = interval;
+    }
+
+    public int getEntityCooldown() {
+        return this.entityCooldown;
+    }
+    public void setEntityCooldown(int entityCooldown) {
+        this.entityCooldown = entityCooldown;
     }
 
     public void setRadius(float value) {
@@ -83,22 +132,14 @@ public class NewNewPower extends Entity {
         return this.targeter;
     }
 
-    public @Nullable Entity getOwner() {
-        if (this.owner == null && this.ownerUUID != null && this.level() instanceof ServerLevel) {
-            Entity entity = ((ServerLevel)this.level()).getEntity(this.ownerUUID);
-            if (entity instanceof LivingEntity living) {
-                this.owner = living;
-            }
-        }
-        return this.owner;
-    }
-    public void setOwner(@Nullable Entity pOwner) {
-        this.owner = pOwner;
-        this.ownerUUID = pOwner == null ? null : pOwner.getUUID();
-    }
-
     public void addAction(AbstractAction action) {
         this.actions.add(action);
+    }
+    public void removeAction(AbstractAction action) {
+        this.actions.remove(action);
+    }
+    public void clearActions(AbstractAction action) {
+        this.actions.clear();
     }
     public List<AbstractAction> getActions() {
         return List.copyOf(this.actions);

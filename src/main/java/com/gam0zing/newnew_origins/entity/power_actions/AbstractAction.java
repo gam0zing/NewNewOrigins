@@ -34,14 +34,7 @@ public abstract class AbstractAction implements INBTSerializable<CompoundTag> {
 
     public static final ActionCategory DEFAULT_CATEGORY = ActionCategory.NORMAL;
 
-    protected ActionCategory category;
-
-    public AbstractAction(ActionCategory category) {
-        this.category = category;
-    }
-    public AbstractAction() {
-        this(DEFAULT_CATEGORY);
-    }
+    protected ActionCategory category = DEFAULT_CATEGORY;
 
     public abstract void render(@NotNull NewNewPower pEntity, float pEntityYaw, float pPartialTick, @NotNull PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight);
     protected abstract void apply(NewNewPower power, Entity target);

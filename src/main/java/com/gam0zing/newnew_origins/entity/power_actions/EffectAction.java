@@ -19,6 +19,8 @@ import java.util.List;
 public class EffectAction extends AbstractAction {
     public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, "effect_action");
 
+    public ActionCategory category = ActionCategory.NORMAL;
+
     protected List<MobEffectInstance> effects = new ArrayList<>();
 
     public EffectAction() {}

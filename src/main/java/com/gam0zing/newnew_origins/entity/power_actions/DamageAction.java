@@ -20,6 +20,8 @@ import org.jetbrains.annotations.NotNull;
 public class DamageAction extends AbstractAction {
     public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(NewNewOrigins.MODID, "damage_action");
 
+    public ActionCategory category = ActionCategory.HARMFUL;
+
     public float damage;
     public boolean noKnockback;
     protected ResourceKey<DamageType> damageType;
